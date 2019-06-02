@@ -2,6 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class AxleInfo
+{
+    public WheelCollider leftWheel;
+    public WheelCollider rightWheel;
+    public bool motor;
+    public bool steering;
+}
+
+
 public class GenScript : MonoBehaviour
 {
     //Road Section  object
@@ -26,12 +36,16 @@ public class GenScript : MonoBehaviour
     [SerializeField]
     private UnityEngine.UI.Text LevelScoreText;
     private int levelScore;
+    [SerializeField]
+    private GameObject rock;
     //Random int
     private int rand;
+    private int rand2;
     //Timer
     private float timer;
     //Speed
     private float speed = 100f;
+    private float speedIncrease = 25f;
     //Tree gen amount
     private float treeAmountPerSecond = 1f;
     //Position of new Road placements
@@ -40,6 +54,18 @@ public class GenScript : MonoBehaviour
     private List<GameObject> sectionList = new List<GameObject>();
     //Tree List
     private List<GameObject> trees = new List<GameObject>();
+    //Rock List
+    private List<GameObject> rocks = new List<GameObject>();
+    //AlxeInfo
+    [SerializeField]
+    public List<AxleInfo> axleInfos;
+    //Max Torque
+    [SerializeField]
+    public float maxMotorTorque;
+    //Max Steer Angle
+    [SerializeField]
+    public float maxSteeringAngle;
+
 
 
 
@@ -55,6 +81,22 @@ public class GenScript : MonoBehaviour
 
     void FixedUpdate()
     {
+        float motor = -(maxMotorTorque * speed);
+        float steering = maxSteeringAngle * (Input.acceleration.x * speed);
+
+        foreach(AxleInfo axleInfo in axleInfos)
+        {
+            if (axleInfo.steering)
+            {
+                axleInfo.leftWheel.steerAngle = steering;
+                axleInfo.rightWheel.steerAngle = steering;
+            }
+            if (axleInfo.motor)
+            {
+                axleInfo.leftWheel.motorTorque = motor;
+                axleInfo.rightWheel.motorTorque = motor;
+            }
+        }
         timer += Time.deltaTime;
         if(timer > treeAmountPerSecond)
         {
@@ -69,12 +111,15 @@ public class GenScript : MonoBehaviour
             {
                 trees.Add(Instantiate(tree, new Vector3(Random.Range(21, 50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 10) + (tileSize+1))), Quaternion.identity));
             }
+
+            rand = Random.Range(0, 9);
+            if(rand > 3)
+            {
+                rocks.Add(Instantiate(rock, new Vector3(Random.Range(0,20), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 10) + (tileSize + 1))), Quaternion.identity));
+
+            }
             timer = 0;
         }
-        //Move car based on Time.deltaTime
-        carRB.GetComponent<Rigidbody>().MovePosition(new Vector3(car.transform.position.x, car.transform.position.y, car.transform.position.z + (speed * Time.deltaTime)));
-        Vector3 acc = Input.acceleration;
-        carRB.AddForce(acc.x * speed, 0, acc.y * speed);
         //If car is further than road, create a new batch of roads
         if (car.transform.position.z > (roadGenPos.z-tileSize))
         {
@@ -100,6 +145,7 @@ public class GenScript : MonoBehaviour
             //Check if new level and then increase the tree spawn
             if(levelCounter >= levelSizeByTile)
             {
+                speed += speedIncrease;
                 levelCounter = 0;
                 treeAmountPerSecond -= treeDecrease;
                 levelScore++;
@@ -110,3 +156,5 @@ public class GenScript : MonoBehaviour
         
     }
 }
+
+
