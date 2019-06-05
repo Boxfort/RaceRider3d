@@ -9,6 +9,7 @@ public class AxleInfo
     public WheelCollider rightWheel;
     public bool motor;
     public bool steering;
+
 }
 
 
@@ -56,16 +57,6 @@ public class GenScript : MonoBehaviour
     private List<GameObject> trees = new List<GameObject>();
     //Rock List
     private List<GameObject> rocks = new List<GameObject>();
-    //AlxeInfo
-    [SerializeField]
-    public List<AxleInfo> axleInfos;
-    //Max Torque
-    [SerializeField]
-    public float maxMotorTorque;
-    //Max Steer Angle
-    [SerializeField]
-    public float maxSteeringAngle;
-
 
 
 
@@ -74,29 +65,13 @@ public class GenScript : MonoBehaviour
         LevelScoreText.text = levelScore.ToString();
         //Generate the first tile section
         car = GameObject.FindGameObjectWithTag("car");
-        carRB = car.GetComponent<Rigidbody>();
         sectionList.Add(Instantiate(road, roadGenPos, Quaternion.identity));
         roadGenPos.z += tileSize;
     }
 
     void FixedUpdate()
     {
-        float motor = -(maxMotorTorque * speed);
-        float steering = maxSteeringAngle * (Input.acceleration.x * speed);
 
-        foreach(AxleInfo axleInfo in axleInfos)
-        {
-            if (axleInfo.steering)
-            {
-                axleInfo.leftWheel.steerAngle = steering;
-                axleInfo.rightWheel.steerAngle = steering;
-            }
-            if (axleInfo.motor)
-            {
-                axleInfo.leftWheel.motorTorque = motor;
-                axleInfo.rightWheel.motorTorque = motor;
-            }
-        }
         timer += Time.deltaTime;
         if(timer > treeAmountPerSecond)
         {
