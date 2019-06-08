@@ -21,9 +21,12 @@ public class GenScript : MonoBehaviour
     //Car object, already placed in the scene
     private GameObject car;
     private Rigidbody carRB;
-    //Tree Object
     [SerializeField]
-    private GameObject tree;
+    private GameObject[] foliage;
+    [SerializeField]
+    private GameObject[] forestObstacles;
+    [SerializeField]
+    private GameObject[] roadObstacles;
     //Tile size
     [SerializeField]
     private float tileSize = 400f;
@@ -33,12 +36,10 @@ public class GenScript : MonoBehaviour
     private int levelCounter = 0;
     //Tree Decrease per level
     [SerializeField]
-    private float treeDecrease = 0.1f;
+    private float obstaclesIncreasePerLevel = 0.1f;
     [SerializeField]
     private UnityEngine.UI.Text LevelScoreText;
     private int levelScore;
-    [SerializeField]
-    private GameObject rock;
     //Random int
     private int rand;
     private int rand2;
@@ -46,17 +47,17 @@ public class GenScript : MonoBehaviour
     private float timer;
     //Speed
     private float speed = 100f;
-    private float speedIncrease = 25f;
+    private float speedIncrease = 10f;
     //Tree gen amount
-    private float treeAmountPerSecond = 1f;
+    private float obstaclesPerSecond = 0.6f;
     //Position of new Road placements
     private Vector3 roadGenPos = new Vector3(0, 0, 0);
     //Section List
     private List<GameObject> sectionList = new List<GameObject>();
-    //Tree List
-    private List<GameObject> trees = new List<GameObject>();
-    //Rock List
-    private List<GameObject> rocks = new List<GameObject>();
+    //Forest obstacles list
+    private List<GameObject> forestObstaclesList = new List<GameObject>();
+    //Road Obstacles list
+    private List<GameObject> roadObstaclesList = new List<GameObject>();
 
 
 
@@ -73,24 +74,24 @@ public class GenScript : MonoBehaviour
     {
 
         timer += Time.deltaTime;
-        if(timer > treeAmountPerSecond)
+        if(timer > obstaclesPerSecond)
         {
             //0 to -28 left side
             //22 to 50 right side
             rand = Random.Range(0, 2);
             if (rand == 0)
             {
-                trees.Add(Instantiate(tree, new Vector3(Random.Range(-1, -30), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 10) + (tileSize+1))), Quaternion.identity));
+                forestObstaclesList.Add(Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(-1, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize+1))), Quaternion.identity));
             }
             else
             {
-                trees.Add(Instantiate(tree, new Vector3(Random.Range(21, 50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 10) + (tileSize+1))), Quaternion.identity));
+                forestObstaclesList.Add(Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(21, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize+1))), Quaternion.identity));
             }
 
             rand = Random.Range(0, 9);
             if(rand > 3)
             {
-                rocks.Add(Instantiate(rock, new Vector3(Random.Range(0,20), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 10) + (tileSize + 1))), Quaternion.identity));
+                roadObstaclesList.Add(Instantiate(roadObstacles[Random.Range(0,roadObstacles.Length)], new Vector3(Random.Range(0,20), roadGenPos.y+1f, Random.Range(roadGenPos.z, (roadGenPos.z * 10) + (tileSize + 1))), Quaternion.identity));
 
             }
             timer = 0;
@@ -105,13 +106,13 @@ public class GenScript : MonoBehaviour
                 Destroy(sectionList[0]);
                 sectionList.RemoveAt(0);
             }
-            if(trees.Count > 50 && Camera.main.transform.position.z > trees[24].transform.position.z)
+            if(forestObstaclesList.Count > 50 && Camera.main.transform.position.z > forestObstaclesList[50].transform.position.z)
             {
-                for(int i = 0; i < 25; i++)
+                for(int i = 0; i < 50; i++)
                 {
                     Debug.Log("Destroying trees");
-                    Destroy(trees[i]);
-                    trees.RemoveAt(i);
+                    Destroy(forestObstaclesList[i]);
+                    forestObstaclesList.RemoveAt(i);
                 }
             }
 
@@ -120,9 +121,9 @@ public class GenScript : MonoBehaviour
             //Check if new level and then increase the tree spawn
             if(levelCounter >= levelSizeByTile)
             {
-                speed += speedIncrease;
+                car.GetComponent<CarScript>().speed += speedIncrease;
                 levelCounter = 0;
-                treeAmountPerSecond -= treeDecrease;
+                obstaclesPerSecond -= obstaclesIncreasePerLevel;
                 levelScore++;
                 LevelScoreText.text = levelScore.ToString();
             }

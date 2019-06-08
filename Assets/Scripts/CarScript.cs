@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class CarScript : MonoBehaviour
 {
-    [SerializeField]
-    private float speed = 10;
+    public float speed;
     [SerializeField]
     private GameObject frontRightWheel;
     [SerializeField]
