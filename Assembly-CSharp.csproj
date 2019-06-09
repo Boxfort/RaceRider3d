@@ -72,6 +72,12 @@
  <Reference Include="Unity.CollabProxy.Editor">
  <HintPath>/home/dillon/RaceRider3d/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Postprocessing.Editor">
+ <HintPath>/home/dillon/RaceRider3d/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Postprocessing.Runtime">
+ <HintPath>/home/dillon/RaceRider3d/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.SpatialTracking">
  <HintPath>/home/dillon/RaceRider3d/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
  </Reference>
@@ -83,12 +89,6 @@
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
  <HintPath>/home/dillon/RaceRider3d/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Postprocessing.Editor">
- <HintPath>/home/dillon/RaceRider3d/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Postprocessing.Runtime">
- <HintPath>/home/dillon/RaceRider3d/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>/home/dillon/Unity/Hub/Editor/2019.1.0a13/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
