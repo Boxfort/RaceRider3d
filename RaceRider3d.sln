@@ -5,8 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{CD3419E4-8E36-4AA4-7517-42A18CADA4CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ameye.prefabpainter", "ameye.prefabpainter.csproj", "{68EA9E29-0983-87D9-E45B-501E829395B3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,10 +19,6 @@ Global
 		{CD3419E4-8E36-4AA4-7517-42A18CADA4CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD3419E4-8E36-4AA4-7517-42A18CADA4CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD3419E4-8E36-4AA4-7517-42A18CADA4CF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{68EA9E29-0983-87D9-E45B-501E829395B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{68EA9E29-0983-87D9-E45B-501E829395B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{68EA9E29-0983-87D9-E45B-501E829395B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{68EA9E29-0983-87D9-E45B-501E829395B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

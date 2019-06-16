@@ -682,10 +682,6 @@
       <Project>{1A7F74A4-ECB6-29EC-0237-D7E6B9629A60}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
-    <ProjectReference Include="ameye.prefabpainter.csproj">
-      <Project>{68EA9E29-0983-87D9-E45B-501E829395B3}</Project>
-      <Name>ameye.prefabpainter</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

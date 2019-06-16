@@ -56,6 +56,8 @@ public class GenScript : MonoBehaviour
     private List<GameObject> sectionList = new List<GameObject>();
     //Forest obstacles list
     private List<GameObject> forestObstaclesList = new List<GameObject>();
+    //Foilage list
+    private List<GameObject> foliageObjectList = new List<GameObject>();
     //Road Obstacles list
     private List<GameObject> roadObstaclesList = new List<GameObject>();
 
@@ -87,7 +89,12 @@ public class GenScript : MonoBehaviour
             {
                 forestObstaclesList.Add(Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(21, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize+1))), Quaternion.identity));
             }
-
+            for(int i = 0; i < 25; i ++)
+            {
+                foliageObjectList.Add(Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(-6, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize + 1))), Quaternion.identity));
+                foliageObjectList.Add(Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(26, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize + 1))), Quaternion.identity));
+            }
+            
             rand = Random.Range(0, 9);
             if(rand > 3)
             {
