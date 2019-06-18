@@ -49,7 +49,7 @@ public class GenScript : MonoBehaviour
     private float speed = 100f;
     private float speedIncrease = 10f;
     //Tree gen amount
-    private float obstaclesPerSecond = 0.6f;
+    private float obstaclesPerSecond = 0.4f;
     //Position of new Road placements
     private Vector3 roadGenPos = new Vector3(0, 0, 0);
     //Section List
@@ -96,7 +96,7 @@ public class GenScript : MonoBehaviour
             }
             
             rand = Random.Range(0, 9);
-            if(rand > 3)
+            if(rand > 5)
             {
                 roadObstaclesList.Add(Instantiate(roadObstacles[Random.Range(0,roadObstacles.Length)], new Vector3(Random.Range(0,20), roadGenPos.y+1f, Random.Range(roadGenPos.z, (roadGenPos.z * 10) + (tileSize + 1))), Quaternion.identity));
 
@@ -119,6 +119,8 @@ public class GenScript : MonoBehaviour
                 {
                     Debug.Log("Destroying trees");
                     Destroy(forestObstaclesList[i]);
+                    Destroy(foliageObjectList[i]);
+                    foliageObjectList.RemoveAt(i);
                     forestObstaclesList.RemoveAt(i);
                 }
             }
