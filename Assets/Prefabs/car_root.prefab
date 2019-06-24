@@ -581,7 +581,8 @@ GameObject:
   - component: {fileID: 8929243211551380620}
   - component: {fileID: 8929243211551380595}
   - component: {fileID: 8929243211551380594}
-  - component: {fileID: 1644442638}
+  - component: {fileID: 767664489}
+  - component: {fileID: 767664492}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -654,7 +655,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8929243211551380593}
   m_Enabled: 1
---- !u!114 &1644442638
+--- !u!114 &767664489
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -670,10 +671,10 @@ MonoBehaviour:
   volumeTrigger: {fileID: 8929243211551380620}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 1
-  antialiasingMode: 2
+  antialiasingMode: 0
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -709,9 +710,27 @@ MonoBehaviour:
       colorBlindnessType: 0
       colorBlindnessStrength: 1
   m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
+  m_ShowToolkit: 1
   m_ShowCustomSorter: 0
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &767664492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8929243211551380593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: c984944583472d44ca4498bb7fc2b753, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 0.729
+  priority: 0

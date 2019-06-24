@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.01
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2101814149}
-  m_IndirectSpecularColor: {r: 0.0018232259, g: 0.0022803003, b: 0.0030732157, a: 0.01}
+  m_IndirectSpecularColor: {r: 0.0018232252, g: 0.002280298, b: 0.0030732118, a: 0.01}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -52,7 +52,7 @@ LightmapSettings:
     m_AlbedoBoost: 1.46
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 0
-    m_EnableRealtimeLightmaps: 1
+    m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 12
     m_Resolution: 2
@@ -431,12 +431,12 @@ PrefabInstance:
     - target: {fileID: 6815992320435138034, guid: 6c29ae7737685d9e99ba001dddbf4007,
         type: 3}
       propertyPath: m_Name
-      value: car_root
+      value: car
       objectReference: {fileID: 0}
     - target: {fileID: 6815992320435138034, guid: 6c29ae7737685d9e99ba001dddbf4007,
         type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2086565628813308312, guid: 6c29ae7737685d9e99ba001dddbf4007,
         type: 3}
@@ -495,106 +495,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1871783532740048855, guid: 6c29ae7737685d9e99ba001dddbf4007,
         type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3191511918390366356, guid: 6c29ae7737685d9e99ba001dddbf4007,
         type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5813802319387740030, guid: 6c29ae7737685d9e99ba001dddbf4007,
         type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8929243211551380593, guid: 6c29ae7737685d9e99ba001dddbf4007,
         type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6446912745915441756, guid: 6c29ae7737685d9e99ba001dddbf4007,
         type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1644442638, guid: 6c29ae7737685d9e99ba001dddbf4007, type: 3}
+    - target: {fileID: 767664489, guid: 6c29ae7737685d9e99ba001dddbf4007, type: 3}
+      propertyPath: volumeLayer.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c29ae7737685d9e99ba001dddbf4007, type: 3}
---- !u!4 &767664487 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8929243211551380620, guid: 6c29ae7737685d9e99ba001dddbf4007,
-    type: 3}
-  m_PrefabInstance: {fileID: 767664486}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &767664488 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8929243211551380593, guid: 6c29ae7737685d9e99ba001dddbf4007,
     type: 3}
   m_PrefabInstance: {fileID: 767664486}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &767664489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 767664488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 767664487}
-  volumeLayer:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  stopNaNPropagation: 1
-  finalBlitToCameraTarget: 1
-  antialiasingMode: 0
-  temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
-  subpixelMorphologicalAntialiasing:
-    quality: 2
-  fastApproximateAntialiasing:
-    fastMode: 0
-    keepAlpha: 0
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 1
-  m_ShowCustomSorter: 0
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []
---- !u!114 &767664492
+--- !u!114 &767664493
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -607,8 +543,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: c984944583472d44ca4498bb7fc2b753, type: 2}
-  isGlobal: 1
+  sharedProfile: {fileID: 0}
+  isGlobal: 0
   blendDistance: 0
   weight: 1
   priority: 0
