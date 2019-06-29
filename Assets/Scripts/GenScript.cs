@@ -2,16 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class AxleInfo
-{
-    public WheelCollider leftWheel;
-    public WheelCollider rightWheel;
-    public bool motor;
-    public bool steering;
-
-}
-
 public class GenScript : MonoBehaviour
 {
     //Road Section  object
@@ -119,20 +109,23 @@ public class GenScript : MonoBehaviour
             {
                 Destroy(sectionList[0]);
                 sectionList.RemoveAt(0);
-            }
-            //Delete foliage and forest obstacles
-            if(forestObstaclesList.Count > 50 && Camera.main.transform.position.z > forestObstaclesList[50].transform.position.z)
-            {
-                for(int i = 0; i < 50; i++)
+                if(forestObstaclesList.Count > 100)
                 {
-                    Debug.Log("Destroying trees");
-                    Destroy(forestObstaclesList[i]);
-                    Destroy(foliageObjectList[i]);
-                    foliageObjectList.RemoveAt(i);
-                    forestObstaclesList.RemoveAt(i);
+                    for(int i = 0; i < forestObstaclesList.Count-50; i++)
+                    {
+                        Destroy(forestObstaclesList[i]);
+                        forestObstaclesList.RemoveAt(i);
+                    }
+                }
+                if(foliageObjectList.Count > 200)
+                {
+                    for(int i = 0; i < foliageObjectList.Count-100; i++)
+                    {
+                        Destroy(foliageObjectList[i]);
+                        foliageObjectList.RemoveAt(i);
+                    }
                 }
             }
-
             //Increase generated z by tile size
             roadGenPos.z += tileSize;
             //Add 1 to level counter

@@ -19,7 +19,9 @@ public class CarScript : MonoBehaviour
     void Update()
     {
 
-        transform.Translate(0, 0, -speed * Time.deltaTime);
+        var v3 = transform.forward;
+        v3.y = 0.0f;
+        transform.Translate(v3 * -speed * Time.deltaTime, Space.World);
         AllignedWheel(frontLeftWheel);
         AllignedWheel(frontRightWheel);
 

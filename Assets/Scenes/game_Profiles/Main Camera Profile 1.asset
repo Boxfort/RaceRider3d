@@ -29,10 +29,10 @@ MonoBehaviour:
     value: 3
   toneCurveToeStrength:
     overrideState: 1
-    value: 0.182
+    value: 0
   toneCurveToeLength:
     overrideState: 1
-    value: 0.564
+    value: 0.424
   toneCurveShoulderStrength:
     overrideState: 1
     value: 0.249
@@ -1337,7 +1337,7 @@ MonoBehaviour:
     value: 1
   softKnee:
     overrideState: 1
-    value: 0.617
+    value: 0.717
   clamp:
     overrideState: 1
     value: 65472
@@ -1399,10 +1399,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.56
+    value: 0.76
   color:
     overrideState: 1
-    value: {r: 0.9716981, g: 0.56570536, b: 0, a: 1}
+    value: {r: 1, g: 1, b: 1, a: 1}
   ambientOnly:
     overrideState: 1
     value: 1
@@ -1417,7 +1417,7 @@ MonoBehaviour:
     value: -12
   thicknessModifier:
     overrideState: 1
-    value: 1.66
+    value: 1
   directLightingStrength:
     overrideState: 0
     value: 0
