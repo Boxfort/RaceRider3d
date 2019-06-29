@@ -1,13 +1,17 @@
 ﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-Shader "Custom/Outline" {
-    Properties {
+Shader "Custom/Outline" 
+{
+    Properties 
+    {
         _Color ("Color", Color) = (1., 1., 1. ,1.)
         _Outline ("_Outline", Range(0,0.1)) = 0
         _OutlineColor ("Color", Color) = (1, 1, 1, 1)
     }
-    SubShader {
-        Pass {
+    SubShader 
+    {
+        Pass 
+        {
             Tags { "RenderType"="Opaque" }
             Cull Front
  
@@ -17,14 +21,15 @@ Shader "Custom/Outline" {
             #pragma fragment frag
             #include "UnityCG.cginc"
  
-            struct v2f {
+            struct v2f 
+            {
                 float4 pos : SV_POSITION;
             };
  
             float _Outline;
             float4 _OutlineColor;
- 
-            float4 vert(appdata_base v) : SV_POSITION {
+            float4 vert(appdata_base v) : SV_POSITION 
+            {
                 v2f o;
                 o.pos = UnityObjectToClipPos(v.vertex);
                 float3 normal = mul((float3x3) UNITY_MATRIX_MV, v.normal);
@@ -34,7 +39,8 @@ Shader "Custom/Outline" {
                 return o.pos;
             }
  
-            half4 frag(v2f i) : COLOR {
+            half4 frag(v2f i) : COLOR 
+            {
                 return _OutlineColor;
             }
  
@@ -46,11 +52,13 @@ Shader "Custom/Outline" {
  
         fixed4 _Color;
  
-        struct Input {
+        struct Input 
+        {
             fixed4 col : COLOR;
         };
  
-        void surf(Input IN, inout SurfaceOutput o) {
+        void surf(Input IN, inout SurfaceOutput o) 
+        {
             o.Albedo = _Color;
         }
  
