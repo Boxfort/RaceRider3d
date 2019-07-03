@@ -87,8 +87,12 @@ public class GenScript : MonoBehaviour
             //Generate foliage on left and right in chunks of 25
             for(int i = 0; i < 25; i ++)
             {
-                foliageObjectList.Add(Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(-6, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize + 1))), Quaternion.identity));
-                foliageObjectList.Add(Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(26, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize + 1))), Quaternion.identity));
+                //Foliage limit
+                if(foliageObjectList.Count < 300)
+                {
+                    foliageObjectList.Add(Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(-6, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize + 1))), Quaternion.identity));
+                    foliageObjectList.Add(Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(26, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize + 1))), Quaternion.identity));
+                }
             }
             //Generate road obstacles
             rand = Random.Range(0, 9);
@@ -109,20 +113,31 @@ public class GenScript : MonoBehaviour
             {
                 Destroy(sectionList[0]);
                 sectionList.RemoveAt(0);
-                if(forestObstaclesList.Count > 100)
+                //Delete forest Obstacles
+                for(int i = 0; i < forestObstaclesList.Count-1;i++)
                 {
-                    for(int i = 0; i < forestObstaclesList.Count-50; i++)
+                    if(forestObstaclesList[i].transform.position.z < Camera.main.transform.position.z- tileSize)
                     {
                         Destroy(forestObstaclesList[i]);
                         forestObstaclesList.RemoveAt(i);
                     }
                 }
-                if(foliageObjectList.Count > 200)
+                //Delete foliage obstacles
+                for(int i = 0; i < foliageObjectList.Count-1;i++)
                 {
-                    for(int i = 0; i < foliageObjectList.Count-100; i++)
+                    if(foliageObjectList[i].transform.position.z < Camera.main.transform.position.z - tileSize)
                     {
                         Destroy(foliageObjectList[i]);
                         foliageObjectList.RemoveAt(i);
+                    }
+                }
+                //Delete road obstacles
+                for(int i = 0; i < roadObstaclesList.Count-1;i++)
+                {
+                    if(roadObstaclesList[i].transform.position.z < Camera.main.transform.position.z - tileSize)
+                    {
+                        Destroy(roadObstaclesList[i]);
+                        roadObstaclesList.RemoveAt(i);
                     }
                 }
             }
