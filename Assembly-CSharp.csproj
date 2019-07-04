@@ -55,7 +55,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CameraFollowScript.cs" />
      <Compile Include="Assets\OutlineEffect\Demo\MaterialSwitcher.cs" />
      <Compile Include="Assets\OutlineEffect\Demo\OutlineAnimation.cs" />
      <Compile Include="Assets\OutlineEffect\Demo\Rotate.cs" />
