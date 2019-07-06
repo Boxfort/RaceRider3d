@@ -78,11 +78,11 @@ public class GenScript : MonoBehaviour
             rand = Random.Range(0, 2);
             if (rand == 0)
             {
-                forestObstaclesList.Add(Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(-1, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize+1))), Quaternion.identity));
+                forestObstaclesList.Add(Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(-1, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize+1))), Quaternion.Euler(-90f,0,0)));
             }
             else
             {
-                forestObstaclesList.Add(Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(21, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize+1))), Quaternion.identity));
+                forestObstaclesList.Add(Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(21, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize+1))), Quaternion.Euler(-90f, 0, 0)));
             }
             //Generate foliage on left and right in chunks of 25
             for(int i = 0; i < 25; i ++)
