@@ -9,9 +9,14 @@ public class CarScript : MonoBehaviour
 
     void Update()
     {
-
-        var v3 = transform.forward;
-        v3.y = 0.0f;
-        transform.Translate(v3 * speed * Time.deltaTime, Space.World);
+        GetComponent<Rigidbody>().AddForce(Vector3.forward * speed);
+        if (Input.GetKey(KeyCode.A))
+        {
+            GetComponent<Rigidbody>().AddForce(Vector3.left * speed);
+        }
+        else if(Input.GetKey(KeyCode.D))
+        {
+            GetComponent<Rigidbody>().AddForce(Vector3.right * speed);
+        }
     }
 }
