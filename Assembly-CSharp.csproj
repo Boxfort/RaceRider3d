@@ -62,20 +62,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\OutlineEffect\Demo\MaterialSwitcher.cs" />
-    <Compile Include="Assets\OutlineEffect\Demo\OutlineAnimation.cs" />
-    <Compile Include="Assets\OutlineEffect\Demo\Rotate.cs" />
-    <Compile Include="Assets\OutlineEffect\Demo\Toggle.cs" />
-    <Compile Include="Assets\OutlineEffect\LinkedSet.cs" />
-    <Compile Include="Assets\OutlineEffect\Outline.cs" />
-    <Compile Include="Assets\OutlineEffect\OutlineEffect.cs" />
     <Compile Include="Assets\Scripts\CarScript.cs" />
     <Compile Include="Assets\Scripts\FollowScript.cs" />
     <Compile Include="Assets\Scripts\GenScript.cs" />
-    <Compile Include="Assets\Scripts\SunScript.cs" />
     <None Include="Assets\Scripts\OutLineShader.shader" />
-    <None Include="Assets\OutlineEffect\Resources\OutlineShader.shader" />
-    <None Include="Assets\OutlineEffect\Resources\OutlineBufferShader.shader" />
     <None Include="Assets\TSF\Shaders\TSFOutline.shader" />
     <None Include="Assets\TSF\Shaders\TSF.shader" />
     <Reference Include="Unity.Timeline.Editor">
