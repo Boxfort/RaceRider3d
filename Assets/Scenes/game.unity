@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.01
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2101814149}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0.01}
+  m_IndirectSpecularColor: {r: 0.0018267195, g: 0.002283819, b: 0.003071215, a: 0.01}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -264,6 +264,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1363261f8321dd468d52b07a77eb66b, type: 3}
+--- !u!1 &800093816 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7155709527043832201, guid: 192ba7dead7ab36499252837e39838d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1582237673328048138}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &800093819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800093816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: c167509e773a517408cb9f69e9cdac71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carModel: {fileID: 800093816}
+  raycastPoint: {fileID: 1276247642}
+  hoverHeight: 1
+  speed: 20
+  terrainHeight: 0
+  rotationAmount: 0
+  pos: {x: 0, y: 0, z: 0}
+  forwardDirection: {x: 0, y: 0, z: 0}
+--- !u!114 &800093823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800093816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 3cc7d958d80af46d1a44a74c55b3dc07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100
+  frontRightWheel: {fileID: 94482480}
+  frontLeftWheel: {fileID: 1676466722}
 --- !u!1 &1008009501
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,6 +387,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008009501}
   m_CullTransparentMesh: 0
+--- !u!1 &1276247641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1276247642}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1276247642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276247641}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 40000}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1314117290
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,7 +721,7 @@ PrefabInstance:
     - target: {fileID: 1198279922781643820, guid: 192ba7dead7ab36499252837e39838d7,
         type: 3}
       propertyPath: speed
-      value: 250
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1198279922781643820, guid: 192ba7dead7ab36499252837e39838d7,
         type: 3}
@@ -675,7 +748,18 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7155709527043832202, guid: 192ba7dead7ab36499252837e39838d7,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6909152377191514316, guid: 192ba7dead7ab36499252837e39838d7,
+        type: 3}
+      propertyPath: fastApproximateAntialiasing.fastMode
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1198279922781643820, guid: 192ba7dead7ab36499252837e39838d7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 192ba7dead7ab36499252837e39838d7, type: 3}
 --- !u!1001 &7788243723511727129
 PrefabInstance:
