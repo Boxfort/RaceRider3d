@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.01
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2101814149}
-  m_IndirectSpecularColor: {r: 0.0018267195, g: 0.002283819, b: 0.003071215, a: 0.01}
+  m_IndirectSpecularColor: {r: 0, g: 0.09985273, b: 0.09985273, a: 0.01}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -283,14 +283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c167509e773a517408cb9f69e9cdac71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carModel: {fileID: 800093816}
-  raycastPoint: {fileID: 1276247642}
-  hoverHeight: 1
-  speed: 20
-  terrainHeight: 0
-  rotationAmount: 0
-  pos: {x: 0, y: 0, z: 0}
-  forwardDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &800093823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,8 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
-  frontRightWheel: {fileID: 94482480}
-  frontLeftWheel: {fileID: 1676466722}
+  tiltFactor: 0.15
 --- !u!1 &1008009501
 GameObject:
   m_ObjectHideFlags: 0
