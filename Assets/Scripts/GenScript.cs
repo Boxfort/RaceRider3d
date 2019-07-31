@@ -152,7 +152,7 @@ public class GenScript : MonoBehaviour
                 levelCounter = 0;
                 obstaclesPerSecond -= obstaclesIncreasePerLevel;
                 levelScore++;
-                LevelScoreText.text = levelScore.ToString();
+                LevelScoreText.text = "Level: " +levelScore.ToString();
             }
         }
     }

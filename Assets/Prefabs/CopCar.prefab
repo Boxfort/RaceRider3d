@@ -245,9 +245,9 @@ GameObject:
   - component: {fileID: 8271964663356370211}
   - component: {fileID: 5463878880822308646}
   - component: {fileID: 444235577121771956}
-  - component: {fileID: 1198279922781643820}
   - component: {fileID: 7155709527043832202}
   - component: {fileID: 7155709527043832203}
+  - component: {fileID: 800093823}
   m_Layer: 0
   m_Name: CopCar
   m_TagString: car
@@ -325,20 +325,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &1198279922781643820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7155709527043832201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
-  m_Script: {fileID: 11500000, guid: 3cc7d958d80af46d1a44a74c55b3dc07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
 --- !u!54 &7155709527043832202
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -347,14 +333,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7155709527043832201}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 3
+  m_Constraints: 64
+  m_CollisionDetection: 2
 --- !u!65 &7155709527043832203
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -368,6 +354,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.110505, y: 14.921964, z: 4.5293746}
   m_Center: {x: 3.4640485e-23, y: -0.0071722586, z: 2.6252725}
+--- !u!114 &800093823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7155709527043832201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 3cc7d958d80af46d1a44a74c55b3dc07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100
+  tiltFactor: 0.15
 --- !u!1 &7888889363606312918
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +482,7 @@ MonoBehaviour:
   subpixelMorphologicalAntialiasing:
     quality: 2
   fastApproximateAntialiasing:
-    fastMode: 0
+    fastMode: 1
     keepAlpha: 0
   fog:
     enabled: 1
