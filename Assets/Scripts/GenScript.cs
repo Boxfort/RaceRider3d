@@ -28,7 +28,7 @@ public class GenScript : MonoBehaviour
     private float obstaclesIncreasePerLevel = 0.1f;
     [SerializeField]
     private UnityEngine.UI.Text LevelScoreText;
-    private int levelScore;
+    private float levelScore;
     //Random int
     private int rand;
     private int rand2;
@@ -67,8 +67,10 @@ public class GenScript : MonoBehaviour
     //FixedUpdate function
     void FixedUpdate()
     {
-        //Incremented timer
-        timer += Time.deltaTime;
+        //Incremented timer, level score and the level score text 
+        timer += Time.fixedDeltaTime;
+        levelScore += Time.fixedDeltaTime;
+        LevelScoreText.text = levelScore.ToString().Substring(0,3);
         //Timer activation to generate obstacles
         if(timer > obstaclesPerSecond)
         {
@@ -151,8 +153,6 @@ public class GenScript : MonoBehaviour
                 car.GetComponent<CarScript>().speed += speedIncrease;
                 levelCounter = 0;
                 obstaclesPerSecond -= obstaclesIncreasePerLevel;
-                levelScore++;
-                LevelScoreText.text = "Level: " +levelScore.ToString();
             }
         }
     }
