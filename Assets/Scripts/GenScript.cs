@@ -62,6 +62,8 @@ public class GenScript : MonoBehaviour
         sectionList.Add(Instantiate(road, roadGenPos, Quaternion.identity));
         //After generation first road move roadGen position
         roadGenPos.z += tileSize;
+        //Set timer to max out at start
+        timer = obstaclesPerSecond;
     }
 
     //FixedUpdate function
@@ -70,7 +72,7 @@ public class GenScript : MonoBehaviour
         //Incremented timer, level score and the level score text 
         timer += Time.fixedDeltaTime;
         levelScore += Time.fixedDeltaTime;
-        LevelScoreText.text = levelScore.ToString().Substring(0,3);
+        LevelScoreText.text = levelScore.ToString().Substring(0,5);
         //Timer activation to generate obstacles
         if(timer > obstaclesPerSecond)
         {
