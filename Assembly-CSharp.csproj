@@ -66,8 +66,6 @@
     <Compile Include="Assets\Scripts\FollowScript.cs" />
     <Compile Include="Assets\Scripts\GenScript.cs" />
     <None Include="Assets\Scripts\OutLineShader.shader" />
-    <None Include="Assets\TSF\Shaders\TSFOutline.shader" />
-    <None Include="Assets\TSF\Shaders\TSF.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

@@ -28,7 +28,7 @@ public class GenScript : MonoBehaviour
     private float obstaclesIncreasePerLevel = 0.1f;
     [SerializeField]
     private UnityEngine.UI.Text LevelScoreText;
-    private float levelScore;
+    private decimal levelScore;
     //Random int
     private int rand;
     private int rand2;
@@ -71,8 +71,8 @@ public class GenScript : MonoBehaviour
     {
         //Incremented timer, level score and the level score text 
         timer += Time.fixedDeltaTime;
-        levelScore += Time.fixedDeltaTime;
-        LevelScoreText.text = levelScore.ToString().Substring(0,5);
+        levelScore += (decimal)Time.fixedDeltaTime;
+        LevelScoreText.text = levelScore.ToString();
         //Timer activation to generate obstacles
         if(timer > obstaclesPerSecond)
         {
