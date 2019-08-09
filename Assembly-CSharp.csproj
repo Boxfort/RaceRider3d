@@ -62,9 +62,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AutoMoveMainMenuCameraScript.cs" />
     <Compile Include="Assets\Scripts\CarScript.cs" />
     <Compile Include="Assets\Scripts\FollowScript.cs" />
     <Compile Include="Assets\Scripts\GenScript.cs" />
+    <Compile Include="Assets\Scripts\MainMenuScirpt.cs" />
     <None Include="Assets\Scripts\OutLineShader.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
