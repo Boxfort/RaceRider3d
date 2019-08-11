@@ -1,11 +1,13 @@
 Android
 PlayerPath?
-C:/Users/dillon/Documents/GitHub/RaceRider3D/onceagain.apk
+C:/Users/dillon/Documents/GitHub/RaceRider3D/game.apk
 SceneListBegin?
+Assets/Scenes/MainMenu.unity
 Assets/Scenes/game.unity
 SceneListEnd?
 69c461161c2d7a7229be69ce10946849 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessLayer
 8b72d9d5b14d1325d686402d726e19e3 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.ColorGrading
+3e402a8de2e3e8efd4a4b53fe4a24c72 Assembly-CSharp.dll:.MainMenuScirpt
 372b3a656320d8affdb5db7c50cd7c63 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.LensDistortion
 8c1bea6a3ac94a054ba255cd599a2396 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 172fb9d33b6629abeab801556d02c983 Unity.Timeline.dll:UnityEngine.Timeline.AudioPlayableAsset
@@ -104,6 +106,7 @@ f476f90b17bbb676cf2c0967453f05ef Unity.TextMeshPro.dll:TMPro.TMP_Asset
 3e402a8de2e3e8efd4a4b53fe4a24c72 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 bc18fd08f83bd360404908e9e858d43f Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.AutoExposure
 cc1edec22e43635ea7e27b01a4b7dbc9 Assembly-CSharp.dll:.CarScript
+7f3870a35284c907dcd23d99a6044ffb Assembly-CSharp.dll:.AutoMoveMainMenuCameraScript
 e3f43e6f8f8e19d2705f5d6c0f2a1b1d Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessDebug
 732d325f353f7a5f6ef1a88e97abcfc7 Unity.TextMeshPro.dll:TMPro.TextContainer
 4daa388de978d2f6337b082a6c89f8ed Unity.TextMeshPro.dll:TMPro.PackageResourceImporterWindow
