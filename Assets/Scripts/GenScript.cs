@@ -168,15 +168,26 @@ public class GenScript : MonoBehaviour
 		}
     }
 
+	//Method called when the game is over
 	public void EndGameScreenDisplay()
 	{
+		//Show end canvas and stop generation
 		endGameCanvas.SetActive(true);
 		gameEnded = true;
 	}
 
+	//Method for when restart game is pressed
 	public void RestartGameButton()
 	{
+		//Load game again
 		SceneManager.LoadScene("game");
+	}
+
+	//Method for when exit button is pressed
+	public void ExitToMenuButton()
+	{
+		//Sent player to the main menu
+		SceneManager.LoadScene("MainMenu");
 	}
 }
 
