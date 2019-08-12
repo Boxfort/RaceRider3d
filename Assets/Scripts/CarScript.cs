@@ -17,6 +17,7 @@ public class CarScript : MonoBehaviour
 
     void Start()
     {
+		//Set orginal z rotation
         orginalZRotation = transform.rotation.z;
     }
     void FixedUpdate()
@@ -43,11 +44,13 @@ public class CarScript : MonoBehaviour
         }
     }
 
+	//Car collision method
     void OnCollisionEnter(Collision collision)
     {
+		//If car has hit an object, called end game method
         if(collision.gameObject.tag == "Object")
         {
-            Application.LoadLevel(Application.loadedLevel);
+			GameObject.Find("GameManger").GetComponent<GenScript>().EndGameScreenDisplay();
         }
     }
 }
