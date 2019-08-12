@@ -57,6 +57,7 @@ public class CarScript : MonoBehaviour
         {
 			GameObject.Find("GameManger").GetComponent<GenScript>().EndGameScreenDisplay();
 			isCarMoving = false;
-        }
+			GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+		}
     }
 }
