@@ -3678,6 +3678,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenuManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3139989090071864057, guid: 70fc3f551a66baa4a9be421a2e407798,
+        type: 3}
+      propertyPath: titleTextTransform
+      value: 
+      objectReference: {fileID: 874728912}
+    - target: {fileID: 3139989090071864057, guid: 70fc3f551a66baa4a9be421a2e407798,
+        type: 3}
+      propertyPath: mainMenuCanvas
+      value: 
+      objectReference: {fileID: 1314117290}
+    - target: {fileID: 3139989090071864057, guid: 70fc3f551a66baa4a9be421a2e407798,
+        type: 3}
+      propertyPath: CustomiseMenuCanvas
+      value: 
+      objectReference: {fileID: 673720599}
+    - target: {fileID: 3139989090071864057, guid: 70fc3f551a66baa4a9be421a2e407798,
+        type: 3}
+      propertyPath: leaderBoardMenuCanvas
+      value: 
+      objectReference: {fileID: 162908905}
+    - target: {fileID: 3139989090071864057, guid: 70fc3f551a66baa4a9be421a2e407798,
+        type: 3}
+      propertyPath: settingMenuCanvas
+      value: 
+      objectReference: {fileID: 2008096352}
     - target: {fileID: 3139989090071864056, guid: 70fc3f551a66baa4a9be421a2e407798,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3733,31 +3758,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3139989090071864057, guid: 70fc3f551a66baa4a9be421a2e407798,
-        type: 3}
-      propertyPath: titleTextTransform
-      value: 
-      objectReference: {fileID: 874728912}
-    - target: {fileID: 3139989090071864057, guid: 70fc3f551a66baa4a9be421a2e407798,
-        type: 3}
-      propertyPath: mainMenuCanvas
-      value: 
-      objectReference: {fileID: 1314117290}
-    - target: {fileID: 3139989090071864057, guid: 70fc3f551a66baa4a9be421a2e407798,
-        type: 3}
-      propertyPath: CustomiseMenuCanvas
-      value: 
-      objectReference: {fileID: 673720599}
-    - target: {fileID: 3139989090071864057, guid: 70fc3f551a66baa4a9be421a2e407798,
-        type: 3}
-      propertyPath: leaderBoardMenuCanvas
-      value: 
-      objectReference: {fileID: 162908905}
-    - target: {fileID: 3139989090071864057, guid: 70fc3f551a66baa4a9be421a2e407798,
-        type: 3}
-      propertyPath: settingMenuCanvas
-      value: 
-      objectReference: {fileID: 2008096352}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70fc3f551a66baa4a9be421a2e407798, type: 3}
 --- !u!1001 &6958146872066465890
