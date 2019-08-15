@@ -90,11 +90,13 @@ public class GenScript : MonoBehaviour
 				rand = Random.Range(0, 2);
 				if (rand == 0)
 				{
-					forestObstaclesList.Add(Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(-1, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize + 1))), Quaternion.Euler(-90f, 0, 0)));
+					GameObject forestObject = Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(-1, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize + 1))), Quaternion.Euler(-90f, 0, 0));
+					forestObject.transform.parent = sectionList[sectionList.Count - 1].transform;
 				}
 				else
 				{
-					forestObstaclesList.Add(Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(21, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize + 1))), Quaternion.Euler(-90f, 0, 0)));
+					GameObject forestObject = Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(21, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize + 1))), Quaternion.Euler(-90f, 0, 0));
+					forestObject.transform.parent = sectionList[sectionList.Count - 1].transform;
 				}
 				//Generate foliage on left and right in chunks of 25
 				for (int i = 0; i < 25; i++)
@@ -102,16 +104,18 @@ public class GenScript : MonoBehaviour
 					//Foliage limit
 					if (foliageObjectList.Count < 300)
 					{
-						foliageObjectList.Add(Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(-6, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize + 1))), Quaternion.identity));
-						foliageObjectList.Add(Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(26, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize + 1))), Quaternion.identity));
+						GameObject foliageObject1 = Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(-6, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize + 1))), Quaternion.identity);
+						GameObject foliageObject2 = Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(26, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize + 1))), Quaternion.identity);
+						foliageObject1.transform.parent = sectionList[sectionList.Count - 1].transform;
+						foliageObject2.transform.parent = sectionList[sectionList.Count - 1].transform;
 					}
 				}
 				//Generate road obstacles
 				rand = Random.Range(0, 9);
 				if (rand > 5)
 				{
-					roadObstaclesList.Add(Instantiate(roadObstacles[Random.Range(0, roadObstacles.Length)], new Vector3(Random.Range(0, 20), roadGenPos.y + 1f, Random.Range(roadGenPos.z, (roadGenPos.z * 10) + (tileSize + 1))), Quaternion.identity));
-
+					GameObject roadObject = Instantiate(roadObstacles[Random.Range(0, roadObstacles.Length)], new Vector3(Random.Range(0, 20), roadGenPos.y + 1f, Random.Range(roadGenPos.z, (roadGenPos.z * 10) + (tileSize + 1))), Quaternion.identity);
+					roadObject.transform.parent = sectionList[sectionList.Count - 1].transform;
 				}
 				//Reset timer
 				timer = 0;
@@ -125,33 +129,6 @@ public class GenScript : MonoBehaviour
 				{
 					Destroy(sectionList[0]);
 					sectionList.RemoveAt(0);
-					//Delete forest Obstacles
-					for (int i = 0; i < forestObstaclesList.Count - 1; i++)
-					{
-						if (forestObstaclesList[i].transform.position.z < Camera.main.transform.position.z - tileSize)
-						{
-							Destroy(forestObstaclesList[i]);
-							forestObstaclesList.RemoveAt(i);
-						}
-					}
-					//Delete foliage obstacles
-					for (int i = 0; i < foliageObjectList.Count - 1; i++)
-					{
-						if (foliageObjectList[i].transform.position.z < Camera.main.transform.position.z - tileSize)
-						{
-							Destroy(foliageObjectList[i]);
-							foliageObjectList.RemoveAt(i);
-						}
-					}
-					//Delete road obstacles
-					for (int i = 0; i < roadObstaclesList.Count - 1; i++)
-					{
-						if (roadObstaclesList[i].transform.position.z < Camera.main.transform.position.z - tileSize)
-						{
-							Destroy(roadObstaclesList[i]);
-							roadObstaclesList.RemoveAt(i);
-						}
-					}
 				}
 				//Increase generated z by tile size
 				roadGenPos.z += tileSize;
