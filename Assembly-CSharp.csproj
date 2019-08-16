@@ -241,6 +241,7 @@
     <Compile Include="Assets\GooglePlayGames\PluginVersion.cs" />
     <Compile Include="Assets\Scripts\AutoMoveMainMenuCameraScript.cs" />
     <Compile Include="Assets\Scripts\CarScript.cs" />
+    <Compile Include="Assets\Scripts\CustomiseScript.cs" />
     <Compile Include="Assets\Scripts\FollowScript.cs" />
     <Compile Include="Assets\Scripts\GenScript.cs" />
     <Compile Include="Assets\Scripts\MainMenuScirpt.cs" />
