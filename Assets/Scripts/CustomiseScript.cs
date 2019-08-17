@@ -22,6 +22,12 @@ public class CustomiseScript : MonoBehaviour
 	private UnityEngine.UI.Text priceText;
 	[SerializeField]
 	private UnityEngine.UI.Text speedText;
+	//Locked icon
+	[SerializeField]
+	private GameObject lockedIcon;
+	//Buy button
+	[SerializeField]
+	private GameObject buyButton;
 	//An array of all the cars in the game
 	[SerializeField]
 	private GameObject[] cars;
@@ -36,6 +42,9 @@ public class CustomiseScript : MonoBehaviour
     {
 		//Set first car
 		currentDisplayedCar = Instantiate(cars[currentCarPosition], cameraCarRotationTransform.position,Quaternion.identity);
+		//Load player cars, player 1 is default unlocked
+		LoadCars();
+		UpdateCarData();
 		//Setting car details
 		//Normal car
 		carsDetailsArray[0].name = "Normal";
@@ -46,22 +55,19 @@ public class CustomiseScript : MonoBehaviour
 		carsDetailsArray[1].name = "Suv";
 		carsDetailsArray[1].price = 100;
 		carsDetailsArray[1].speed = 15;
-		carsDetailsArray[1].unlocked = false;
+		
 		//Taxi
 		carsDetailsArray[2].name = "Taxi";
 		carsDetailsArray[2].price = 300;
 		carsDetailsArray[2].speed = 17;
-		carsDetailsArray[2].unlocked = false;
 		//Sports car
 		carsDetailsArray[3].name = "Sports";
 		carsDetailsArray[3].price = 500;
 		carsDetailsArray[3].speed = 19;
-		carsDetailsArray[3].unlocked = false;
 		//Cop car
 		carsDetailsArray[4].name = "Cop";
 		carsDetailsArray[4].price = 1000;
 		carsDetailsArray[4].speed = 20;
-		carsDetailsArray[4].unlocked = false;
 	}
 
     // Update is called once per frame
@@ -97,10 +103,131 @@ public class CustomiseScript : MonoBehaviour
 		}
 	}
 
+	//Method for when the buy button on the customise screen is pressed
+	public void BuyButton()
+	{
+		//If player has enough gold, minus the gold and update car data and text data
+		if(MainMenuScirpt.gold >= carsDetailsArray[currentCarPosition].price)
+		{
+			MainMenuScirpt.gold -= carsDetailsArray[currentCarPosition].price;
+			PlayerPrefs.GetInt("gold", MainMenuScirpt.gold);
+			carsDetailsArray[currentCarPosition].unlocked = true;
+			UpdateCarData();
+			UpdateText();
+		}
+	}
+
+	//Update all customise text field and the unlocked icon
 	public void UpdateText()
 	{
 		nameText.text = "Name: " + carsDetailsArray[currentCarPosition].name;
 		priceText.text = "Price: " + carsDetailsArray[currentCarPosition].price;
 		speedText.text = "Speed: " + carsDetailsArray[currentCarPosition].speed;
+		if(!carsDetailsArray[currentCarPosition].unlocked)
+		{
+			lockedIcon.SetActive(true);
+			buyButton.SetActive(true);
+		}
+		else
+		{
+			lockedIcon.SetActive(false);
+			buyButton.SetActive(false);
+		}
+	}
+
+	//Load cars, Unlocked car is the playerpref key for it has been found
+	private void LoadCars()
+	{
+		//Load cars, car 1 is default unlocked
+		if (PlayerPrefs.HasKey("car2Unlocked"))
+		{
+			if (PlayerPrefs.GetInt("car2Unlocked") == 0)
+			{
+				carsDetailsArray[1].unlocked = false;
+			}
+			else if (PlayerPrefs.GetInt("car2Unlocked") == 1)
+			{
+				carsDetailsArray[1].unlocked = true;
+			}
+		}
+		else
+		{
+			PlayerPrefs.SetInt("car2Unlocked", 0);
+			carsDetailsArray[1].unlocked = false;
+		}
+
+		if (PlayerPrefs.HasKey("car3Unlocked"))
+		{
+			if (PlayerPrefs.GetInt("car3Unlocked") == 0)
+			{
+				carsDetailsArray[2].unlocked = false;
+			}
+			else if (PlayerPrefs.GetInt("car3Unlocked") == 1)
+			{
+				carsDetailsArray[2].unlocked = true;
+			}
+		}
+		else
+		{
+			PlayerPrefs.SetInt("car3Unlocked", 0);
+			carsDetailsArray[2].unlocked = false;
+		}
+
+		if (PlayerPrefs.HasKey("car4Unlocked"))
+		{
+			if (PlayerPrefs.GetInt("car4Unlocked") == 0)
+			{
+				carsDetailsArray[3].unlocked = false;
+			}
+			else if (PlayerPrefs.GetInt("car4Unlocked") == 1)
+			{
+				carsDetailsArray[3].unlocked = true;
+			}
+		}
+		else
+		{
+			PlayerPrefs.SetInt("car4Unlocked", 0);
+			carsDetailsArray[3].unlocked = false;
+		}
+
+		if (PlayerPrefs.HasKey("car5Unlocked"))
+		{
+			if (PlayerPrefs.GetInt("car5Unlocked") == 0)
+			{
+				carsDetailsArray[4].unlocked = false;
+			}
+			else if (PlayerPrefs.GetInt("car5Unlocked") == 1)
+			{
+				carsDetailsArray[4].unlocked = true;
+			}
+		}
+		else
+		{
+			PlayerPrefs.SetInt("car5Unlocked", 0);
+			carsDetailsArray[4].unlocked = false;
+		}
+		PlayerPrefs.Save();
+	}
+
+	//Update cars player pref if changed to true
+	private void UpdateCarData()
+	{
+		if(carsDetailsArray[1].unlocked == true)
+		{
+			PlayerPrefs.SetInt("car2Unlocked", 1);
+		}
+		else if(carsDetailsArray[2].unlocked == true)
+		{
+			PlayerPrefs.SetInt("car3Unlocked", 1);
+		}
+		else if (carsDetailsArray[3].unlocked == true)
+		{
+			PlayerPrefs.SetInt("car4Unlocked", 1);
+		}
+		else if (carsDetailsArray[4].unlocked == true)
+		{
+			PlayerPrefs.SetInt("car5Unlocked", 1);
+		}
+		PlayerPrefs.Save();
 	}
 }

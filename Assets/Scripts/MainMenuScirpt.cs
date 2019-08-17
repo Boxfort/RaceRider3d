@@ -24,6 +24,11 @@ public class MainMenuScirpt : MonoBehaviour
 	private GameObject leaderBoardMenuCanvas;
 	[SerializeField]
 	private GameObject settingMenuCanvas;
+	//Player gold
+	public static int gold;
+	//Gold text
+	[SerializeField]
+	private UnityEngine.UI.Text goldText;
 
     //Start method
     void Start()
@@ -31,6 +36,18 @@ public class MainMenuScirpt : MonoBehaviour
         //Set starting position and end position vectors
         startingPositionTiltleText = titleTextTransform.localPosition;
         endPositionTitleText = new Vector3(startingPositionTiltleText.x, endYTitleText, startingPositionTiltleText.z);
+		//If player new set gold to see, other wise load 
+		if(PlayerPrefs.HasKey("gold"))
+		{
+			gold = PlayerPrefs.GetInt("gold");
+		}
+		else
+		{
+			gold = 0;
+			PlayerPrefs.SetInt("gold", 0);
+		}
+		goldText.text = gold.ToString();
+		PlayerPrefs.Save();
     }
 
     //Update method
