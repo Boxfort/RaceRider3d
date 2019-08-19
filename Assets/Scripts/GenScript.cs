@@ -35,6 +35,11 @@ public class GenScript : MonoBehaviour
 	[SerializeField]
 	private GameObject endGameCanvas;
 	private bool gameEnded = false;
+	//End gold and score texts
+	[SerializeField]
+	private UnityEngine.UI.Text endGoldText;
+	[SerializeField]
+	private UnityEngine.UI.Text endScoreText;
     //Random int
     private int rand;
     private int rand2;
@@ -90,12 +95,12 @@ public class GenScript : MonoBehaviour
 				rand = Random.Range(0, 2);
 				if (rand == 0)
 				{
-					GameObject forestObject = Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(-1, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize + 1))), Quaternion.Euler(-90f, 0, 0));
+					GameObject forestObject = Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(-1, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 2) + (tileSize + 1))), Quaternion.Euler(-90f, 0, 0));
 					forestObject.transform.parent = sectionList[sectionList.Count - 1].transform;
 				}
 				else
 				{
-					GameObject forestObject = Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(21, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize + 1))), Quaternion.Euler(-90f, 0, 0));
+					GameObject forestObject = Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(21, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 2) + (tileSize + 1))), Quaternion.Euler(-90f, 0, 0));
 					forestObject.transform.parent = sectionList[sectionList.Count - 1].transform;
 				}
 				//Generate foliage on left and right in chunks of 25
@@ -104,8 +109,8 @@ public class GenScript : MonoBehaviour
 					//Foliage limit
 					if (foliageObjectList.Count < 300)
 					{
-						GameObject foliageObject1 = Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(-6, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize + 1))), Quaternion.identity);
-						GameObject foliageObject2 = Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(26, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 5) + (tileSize + 1))), Quaternion.identity);
+						GameObject foliageObject1 = Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(-6, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 2) + (tileSize + 1))), Quaternion.identity);
+						GameObject foliageObject2 = Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(26, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 2) + (tileSize + 1))), Quaternion.identity);
 						foliageObject1.transform.parent = sectionList[sectionList.Count - 1].transform;
 						foliageObject2.transform.parent = sectionList[sectionList.Count - 1].transform;
 					}
@@ -125,7 +130,7 @@ public class GenScript : MonoBehaviour
 			{
 				//Add the new road and delete old section if behind camera
 				sectionList.Add(Instantiate(road, roadGenPos, Quaternion.identity));
-				if (Camera.main.transform.position.z - tileSize > sectionList[0].transform.position.z)
+				if (sectionList.Count > 5)
 				{
 					Destroy(sectionList[0]);
 					sectionList.RemoveAt(0);
@@ -150,6 +155,15 @@ public class GenScript : MonoBehaviour
 	{
 		//Show end canvas and stop generation
 		endGameCanvas.SetActive(true);
+		//Set end score and end gold text
+		endScoreText.text = Mathf.RoundToInt(levelScore).ToString();
+		endGoldText.text = Mathf.RoundToInt(levelScore).ToString();
+		//Add gold to players playerprefs
+		MainMenuScirpt.gold = Mathf.RoundToInt(levelScore);
+		PlayerPrefs.SetInt("gold", MainMenuScirpt.gold);
+		PlayerPrefs.Save();
+		//set game to end and levelscore text to empty
+		LevelScoreText.text = "";
 		gameEnded = true;
 	}
 
