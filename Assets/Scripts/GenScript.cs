@@ -117,7 +117,7 @@ public class GenScript : MonoBehaviour
 				}
 				//Generate road obstacles
 				rand = Random.Range(0, 9);
-				if (rand > 5)
+				if (rand > 3)
 				{
 					GameObject roadObject = Instantiate(roadObstacles[Random.Range(0, roadObstacles.Length)], new Vector3(Random.Range(0, 20), roadGenPos.y + 1f, Random.Range(roadGenPos.z, (roadGenPos.z * 10) + (tileSize + 1))), Quaternion.identity);
 					roadObject.transform.parent = sectionList[sectionList.Count - 1].transform;
@@ -159,7 +159,7 @@ public class GenScript : MonoBehaviour
 		endScoreText.text = Mathf.RoundToInt(levelScore).ToString();
 		endGoldText.text = Mathf.RoundToInt(levelScore).ToString();
 		//Add gold to players playerprefs
-		MainMenuScirpt.gold = Mathf.RoundToInt(levelScore);
+		MainMenuScirpt.gold += Mathf.RoundToInt(levelScore);
 		PlayerPrefs.SetInt("gold", MainMenuScirpt.gold);
 		PlayerPrefs.Save();
 		//set game to end and levelscore text to empty
