@@ -28,6 +28,12 @@ public class CustomiseScript : MonoBehaviour
 	//Buy button
 	[SerializeField]
 	private GameObject buyButton;
+	//Select car button
+	[SerializeField]
+	private GameObject selectButton;
+	//Select check mark
+	[SerializeField]
+	private GameObject selectCheckMark;
 	//An array of all the cars in the game
 	[SerializeField]
 	private GameObject[] cars;
@@ -117,6 +123,13 @@ public class CustomiseScript : MonoBehaviour
 		}
 	}
 
+	//Method for when the select button on the customise screen is pressed
+	public void SelectButton()
+	{
+		MainMenuScirpt.selectedCar = currentCarPosition;
+		UpdateText();
+	}
+
 	//Update all customise text field and the unlocked icon
 	public void UpdateText()
 	{
@@ -127,11 +140,24 @@ public class CustomiseScript : MonoBehaviour
 		{
 			lockedIcon.SetActive(true);
 			buyButton.SetActive(true);
+			selectButton.SetActive(false);
+			selectCheckMark.SetActive(false);
 		}
 		else
 		{
 			lockedIcon.SetActive(false);
 			buyButton.SetActive(false);
+			if(MainMenuScirpt.selectedCar != currentCarPosition)
+			{
+				selectButton.SetActive(true);
+				selectCheckMark.SetActive(false);
+			}
+			else
+			{
+				selectButton.SetActive(false);
+				selectCheckMark.SetActive(true);
+			}
+			
 		}
 	}
 

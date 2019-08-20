@@ -26,6 +26,8 @@ public class MainMenuScirpt : MonoBehaviour
 	private GameObject settingMenuCanvas;
 	//Player gold
 	public static int gold;
+	//Player selected car
+	public static int selectedCar = 0;
 	//Gold text
 	[SerializeField]
 	private UnityEngine.UI.Text goldText;
