@@ -30,7 +30,7 @@ public class MainMenuScirpt : MonoBehaviour
 	public static int selectedCar = 0;
 	//Gold text
 	[SerializeField]
-	private UnityEngine.UI.Text goldText;
+	public static UnityEngine.UI.Text goldText;
 
     //Start method
     void Start()
