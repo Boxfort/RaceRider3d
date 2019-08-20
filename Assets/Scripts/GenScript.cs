@@ -40,6 +40,20 @@ public class GenScript : MonoBehaviour
 	private UnityEngine.UI.Text endGoldText;
 	[SerializeField]
 	private UnityEngine.UI.Text endScoreText;
+	//Car spawn transform
+	[SerializeField]
+	private Transform carSpawnTransform;
+	//Cars gameobject
+	[SerializeField]
+	private GameObject normalCar;
+	[SerializeField]
+	private GameObject suvCar;
+	[SerializeField]
+	private GameObject taxiCar;
+	[SerializeField]
+	private GameObject sportsCar;
+	[SerializeField]
+	private GameObject copCar;
     //Random int
     private int rand;
     private int rand2;
@@ -68,9 +82,29 @@ public class GenScript : MonoBehaviour
         //Set level score
         LevelScoreText.text = levelScore.ToString();
         //Assing the main car object in the scene
-        car = GameObject.FindGameObjectWithTag("car");
-        //Generate the first tile section
-        sectionList.Add(Instantiate(road, roadGenPos, Quaternion.identity));
+        if(MainMenuScirpt.selectedCar == 0)
+		{
+			car = Instantiate(normalCar, carSpawnTransform.position,carSpawnTransform.rotation);
+		}
+		else if(MainMenuScirpt.selectedCar == 1)
+		{
+			car = Instantiate(suvCar, carSpawnTransform.position, carSpawnTransform.rotation);
+		}
+		else if (MainMenuScirpt.selectedCar == 2)
+		{
+			car = Instantiate(taxiCar, carSpawnTransform.position, carSpawnTransform.rotation);
+		}
+		else if (MainMenuScirpt.selectedCar == 3)
+		{
+			car = Instantiate(sportsCar, carSpawnTransform.position, carSpawnTransform.rotation);
+		}
+		else if (MainMenuScirpt.selectedCar == 4)
+		{
+			car = Instantiate(copCar, carSpawnTransform.position, carSpawnTransform.rotation);
+		}
+
+		//Generate the first tile section
+		sectionList.Add(Instantiate(road, roadGenPos, Quaternion.identity));
         //After generation first road move roadGen position
         roadGenPos.z += tileSize;
         //Set timer to max out at start

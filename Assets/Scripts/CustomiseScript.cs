@@ -136,7 +136,8 @@ public class CustomiseScript : MonoBehaviour
 		nameText.text = "Name: " + carsDetailsArray[currentCarPosition].name;
 		priceText.text = "Price: " + carsDetailsArray[currentCarPosition].price;
 		speedText.text = "Speed: " + carsDetailsArray[currentCarPosition].speed;
-		MainMenuScirpt.goldText.text = MainMenuScirpt.gold.ToString();
+		MainMenuScirpt.UpdateGold();
+
 		if(!carsDetailsArray[currentCarPosition].unlocked)
 		{
 			lockedIcon.SetActive(true);

@@ -5,16 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScirpt : MonoBehaviour
 {
-    //The rect of title text
-    [SerializeField]
-    private RectTransform titleTextTransform;
-    //Where title text should end up
-    [SerializeField]
-    private float endYTitleText;
-    //Starting Position of title text
-    private Vector3 startingPositionTiltleText;
-    //End position of title Text
-    private Vector3 endPositionTitleText;
+	//The rect of title text
+	[SerializeField]
+	private RectTransform titleTextTransform;
+	//Where title text should end up
+	[SerializeField]
+	private float endYTitleText;
+	//Starting Position of title text
+	private Vector3 startingPositionTiltleText;
+	//End position of title Text
+	private Vector3 endPositionTitleText;
 	//Each canvas menu
 	[SerializeField]
 	private GameObject mainMenuCanvas;
@@ -30,16 +30,18 @@ public class MainMenuScirpt : MonoBehaviour
 	public static int selectedCar = 0;
 	//Gold text
 	[SerializeField]
-	public static UnityEngine.UI.Text goldText;
+	private static GameObject goldText;
 
-    //Start method
-    void Start()
-    {
-        //Set starting position and end position vectors
-        startingPositionTiltleText = titleTextTransform.localPosition;
-        endPositionTitleText = new Vector3(startingPositionTiltleText.x, endYTitleText, startingPositionTiltleText.z);
+	//Start method
+	void Start()
+	{
+		//Find gold text
+		goldText = GameObject.Find("GoldText");
+		//Set starting position and end position vectors
+		startingPositionTiltleText = titleTextTransform.localPosition;
+		endPositionTitleText = new Vector3(startingPositionTiltleText.x, endYTitleText, startingPositionTiltleText.z);
 		//If player new set gold to see, other wise load 
-		if(PlayerPrefs.HasKey("gold"))
+		if (PlayerPrefs.HasKey("gold"))
 		{
 			gold = PlayerPrefs.GetInt("gold");
 		}
@@ -48,9 +50,15 @@ public class MainMenuScirpt : MonoBehaviour
 			gold = 0;
 			PlayerPrefs.SetInt("gold", 0);
 		}
-		goldText.text = gold.ToString();
+		UpdateGold();
+	}
+
+	//Update gold
+	public static void UpdateGold()
+	{
+		goldText.GetComponent<UnityEngine.UI.Text>().text = gold.ToString();
 		PlayerPrefs.Save();
-    }
+	}
 
     //Update method
     void FixedUpdate()
