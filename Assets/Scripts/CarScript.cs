@@ -15,6 +15,9 @@ public class CarScript : MonoBehaviour
     private float rotationDirection;
 	//Is car moving
 	private bool isCarMoving = false;
+	//Cars camera
+	private Camera mainCamera;
+	private Vector3 defaultCameraRotation;
 	
 
 
@@ -22,6 +25,10 @@ public class CarScript : MonoBehaviour
     {
 		//Set orginal z rotation
         orginalZRotation = transform.rotation.z;
+		//Set mainCamera
+		mainCamera = Camera.main;
+		//Set default camera rotation
+		defaultCameraRotation = mainCamera.transform.rotation.eulerAngles;
     }
     void FixedUpdate()
     {
@@ -53,6 +60,7 @@ public class CarScript : MonoBehaviour
 			GetComponent<Rigidbody>().velocity = Vector3.zero;
 			GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 		}
+		mainCamera.transform.rotation = Quaternion.Euler(defaultCameraRotation);
     }
 
 	//Car collision method
@@ -61,10 +69,9 @@ public class CarScript : MonoBehaviour
 		//If car has hit an object, called end game method
         if(collision.gameObject.tag == "Object")
         {
-			GameObject.Find("GameManger").GetComponent<GenScript>().EndGameScreenDisplay();
-			transform.Translate(new Vector3(0, 0, -1));
+			transform.Translate(new Vector3(0, 0, -4));
 			TurnOnOffCar(false);
-			
+			GameObject.Find("GameManger").GetComponent<GenScript>().EndGameScreenDisplay();
 		}
     }
 
