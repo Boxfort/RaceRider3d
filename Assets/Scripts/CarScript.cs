@@ -7,7 +7,7 @@ public class CarScript : MonoBehaviour
     //Adjustable speed for the car forward and turning movement
     public float speed;
     //Factor of when the phone just start changing direction input out of 1f
-    [SerializeField]
+
     private float tiltFactor;
     //Orginal car rotation on the z axis
     private float orginalZRotation;
@@ -23,6 +23,8 @@ public class CarScript : MonoBehaviour
 
 	void Start()
     {
+		//Setting tilt factor
+		tiltFactor = SettingsMenu.tiltFactor;
 		//Set orginal z rotation
         orginalZRotation = transform.rotation.z;
 		//Set mainCamera

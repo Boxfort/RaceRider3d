@@ -245,6 +245,7 @@
     <Compile Include="Assets\Scripts\FollowScript.cs" />
     <Compile Include="Assets\Scripts\GenScript.cs" />
     <Compile Include="Assets\Scripts\MainMenuScirpt.cs" />
+    <Compile Include="Assets\Scripts\SettingsMenu.cs" />
     <None Include="Assets\Scripts\OutLineShader.shader" />
     <None Include="Assets\GooglePlayGames\Plugins\Android\GooglePlayGamesManifest.plugin\AndroidManifest.xml" />
     <Reference Include="Unity.Timeline.Editor">
