@@ -137,7 +137,7 @@ public class GenScript : MonoBehaviour
 				car.GetComponent<CarScript>().TurnOnOffCar(true);
 				//Incremented timer, level score and the level score text 
 				timer += Time.fixedDeltaTime;
-				levelScore += Time.fixedDeltaTime;
+				levelScore += Time.fixedDeltaTime * (car.GetComponent<CarScript>().speed / 100);
 				LevelScoreText.GetComponent<UnityEngine.UI.Text>().text = Mathf.Round(levelScore).ToString();
 				//Timer activation to generate obstacles
 				if (timer > obstaclesPerSecond)
