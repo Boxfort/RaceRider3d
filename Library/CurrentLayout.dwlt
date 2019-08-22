@@ -22,7 +22,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 544}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -116,10 +116,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 987
-  m_MinSize: {x: 681, y: 494}
-  m_MaxSize: {x: 14002, y: 14044}
+  m_MinSize: {x: 683, y: 494}
+  m_MaxSize: {x: 14004, y: 14044}
   vertical: 0
-  controlID: 94
+  controlID: 40
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 494}
   m_MaxSize: {x: 10002, y: 14044}
   vertical: 1
-  controlID: 71
+  controlID: 41
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 222}
   m_MaxSize: {x: 8006, y: 4022}
   vertical: 0
-  controlID: 72
+  controlID: 42
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -276,8 +276,8 @@ MonoBehaviour:
     y: 0
     width: 535
     height: 987
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 72}
+  m_MaxSize: {x: 4002, y: 4022}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -422,23 +422,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 442e0000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: feeaffff0eebffff8cfbffff3e340000d23d0000
+      m_ExpandedIDs: 44fef7ff76fef7ffc6fff7ff3e0cf8ffc05ff9ff986df9ff4ac8f9ffcad5f9fff20efaffdc2efaff3440faff0a61faff607ffaff3885faffdc7dffffa08cffffec96ffff82e1ffff10f0ffff8cfbffff783c000000070100305d0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: CarSpawnTransform
+        m_OriginalName: CarSpawnTransform
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 89392
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -480,13 +480,13 @@ MonoBehaviour:
   m_Gizmos: 1
   m_SceneIsLit: 1
   m_SceneLighting: 1
-  m_2DMode: 1
+  m_2DMode: 0
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
     speed: 2
-    m_Value: {x: 720, y: 1480, z: 0}
+    m_Value: {x: 33.0721, y: 4.195348, z: -12.4007015}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -507,19 +507,19 @@ MonoBehaviour:
       m_Value: 0
     yGrid:
       speed: 2
-      m_Value: 0
+      m_Value: 1
     zGrid:
       speed: 2
-      m_Value: 1
+      m_Value: 0
   m_Rotation:
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0, w: 1}
+    m_Value: {x: -0.14568764, y: 0.45862848, z: -0.07651392, w: -0.87325865}
   m_Size:
     speed: 2
-    m_Value: 3447.0903
+    m_Value: 22.99
   m_Ortho:
     speed: 2
-    m_Value: 1
+    m_Value: 0
   m_SceneViewCameraSettings:
     m_Speed: 2
     m_SpeedNormalized: 1
@@ -577,20 +577,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Art/UI
+    - Assets/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Art/UI
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\dillon\Documents\GitHub\RaceRider3D
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 35}
-    m_SelectedIDs: 442e0000
-    m_LastClickedID: 11844
-    m_ExpandedIDs: 00000000a82c0000102d0000922d0000e02e00006e3b0000703b0000723b0000743b000000ca9a3b
+    m_SelectedIDs: 362f0000
+    m_LastClickedID: 12086
+    m_ExpandedIDs: 00000000a82c0000102d0000922d0000e02e0000443a0000463a0000483a00004a3a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -618,7 +618,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a82c0000102d0000922d0000e02e00006e3b0000703b0000723b0000743b0000
+    m_ExpandedIDs: 00000000a82c0000102d0000922d0000e02e0000443a0000463a0000483a00004a3a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -645,7 +645,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000ea42000040410000d2800000163800002c680000b44d0000244d0000684d0000b24d0000844300004a38000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
