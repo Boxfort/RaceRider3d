@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 631811238451760289}
-  - component: {fileID: 3792041505274039870}
+  - component: {fileID: 790137247660464491}
   m_Layer: 0
   m_Name: rock1
   m_TagString: Object
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3792041505274039870
+--- !u!65 &790137247660464491
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,8 +43,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.787407, y: 1, z: 5.5031166}
-  m_Center: {x: -2.8937035, y: 0, z: -2.2515583}
+  m_Size: {x: 5.790287, y: 2.0240116, z: 4.686926}
+  m_Center: {x: -3.3551502, y: 0.5120058, z: -2.477788}
 --- !u!1 &7502807073181195410
 GameObject:
   m_ObjectHideFlags: 0
