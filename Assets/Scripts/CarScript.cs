@@ -14,7 +14,7 @@ public class CarScript : MonoBehaviour
     //Store car rotation
     private float rotationDirection;
 	//Is car moving
-	private bool isCarMoving = true;
+	private bool isCarMoving = false;
 
 
     void Start()
@@ -56,8 +56,20 @@ public class CarScript : MonoBehaviour
         if(collision.gameObject.tag == "Object")
         {
 			GameObject.Find("GameManger").GetComponent<GenScript>().EndGameScreenDisplay();
+			TurnOnOffCar(false);
+		}
+    }
+
+	public void TurnOnOffCar(bool engine)
+	{
+		if(engine)
+		{
+			isCarMoving = true;
+		}
+		else
+		{
 			isCarMoving = false;
 			GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
 		}
-    }
+	}
 }

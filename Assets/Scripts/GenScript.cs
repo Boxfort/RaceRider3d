@@ -54,6 +54,16 @@ public class GenScript : MonoBehaviour
 	private GameObject sportsCar;
 	[SerializeField]
 	private GameObject copCar;
+	//CountDown gameobject And images
+	[SerializeField]
+	private GameObject countDownGameObject;
+	[SerializeField]
+	private Sprite countDownImage1;
+	[SerializeField]
+	private Sprite countDownImage2;
+	[SerializeField]
+	private Sprite countDownImage3;
+	private float countDownTimer = 3f;
     //Random int
     private int rand;
     private int rand2;
@@ -116,71 +126,94 @@ public class GenScript : MonoBehaviour
     {
 		if(!gameEnded)
 		{
-			//Incremented timer, level score and the level score text 
-			timer += Time.fixedDeltaTime;
-			levelScore += Time.fixedDeltaTime;
-			LevelScoreText.text = Mathf.Round(levelScore).ToString();
-			//Timer activation to generate obstacles
-			if (timer > obstaclesPerSecond)
+			if(countDownTimer <= 0)
 			{
-				//0 to -28 left side
-				//22 to 50 right side
-				//Generate forest obstacles on left or right
-				rand = Random.Range(0, 2);
-				if (rand == 0)
+				countDownGameObject.SetActive(false);
+				car.GetComponent<CarScript>().TurnOnOffCar(true);
+				//Incremented timer, level score and the level score text 
+				timer += Time.fixedDeltaTime;
+				levelScore += Time.fixedDeltaTime;
+				LevelScoreText.text = Mathf.Round(levelScore).ToString();
+				//Timer activation to generate obstacles
+				if (timer > obstaclesPerSecond)
 				{
-					GameObject forestObject = Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(-1, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 2) + (tileSize + 1))), Quaternion.Euler(-90f, 0, 0));
-					forestObject.transform.parent = sectionList[sectionList.Count - 1].transform;
-				}
-				else
-				{
-					GameObject forestObject = Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(21, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 2) + (tileSize + 1))), Quaternion.Euler(-90f, 0, 0));
-					forestObject.transform.parent = sectionList[sectionList.Count - 1].transform;
-				}
-				//Generate foliage on left and right in chunks of 25
-				for (int i = 0; i < 25; i++)
-				{
-					//Foliage limit
-					if (foliageObjectList.Count < 300)
+					//0 to -28 left side
+					//22 to 50 right side
+					//Generate forest obstacles on left or right
+					rand = Random.Range(0, 2);
+					if (rand == 0)
 					{
-						GameObject foliageObject1 = Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(-6, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 2) + (tileSize + 1))), Quaternion.identity);
-						GameObject foliageObject2 = Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(26, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 2) + (tileSize + 1))), Quaternion.identity);
-						foliageObject1.transform.parent = sectionList[sectionList.Count - 1].transform;
-						foliageObject2.transform.parent = sectionList[sectionList.Count - 1].transform;
+						GameObject forestObject = Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(-1, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 2) + (tileSize + 1))), Quaternion.Euler(-90f, 0, 0));
+						forestObject.transform.parent = sectionList[sectionList.Count - 1].transform;
+					}
+					else
+					{
+						GameObject forestObject = Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(21, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 2) + (tileSize + 1))), Quaternion.Euler(-90f, 0, 0));
+						forestObject.transform.parent = sectionList[sectionList.Count - 1].transform;
+					}
+					//Generate foliage on left and right in chunks of 25
+					for (int i = 0; i < 25; i++)
+					{
+						//Foliage limit
+						if (foliageObjectList.Count < 300)
+						{
+							GameObject foliageObject1 = Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(-6, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 2) + (tileSize + 1))), Quaternion.identity);
+							GameObject foliageObject2 = Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(26, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 2) + (tileSize + 1))), Quaternion.identity);
+							foliageObject1.transform.parent = sectionList[sectionList.Count - 1].transform;
+							foliageObject2.transform.parent = sectionList[sectionList.Count - 1].transform;
+						}
+					}
+					//Generate road obstacles
+					rand = Random.Range(0, 9);
+					if (rand > 3)
+					{
+						GameObject roadObject = Instantiate(roadObstacles[Random.Range(0, roadObstacles.Length)], new Vector3(Random.Range(0, 20), roadGenPos.y + 1f, Random.Range(roadGenPos.z, (roadGenPos.z * 10) + (tileSize + 1))), Quaternion.identity);
+						roadObject.transform.parent = sectionList[sectionList.Count - 1].transform;
+					}
+					//Reset timer
+					timer = 0;
+				}
+				//If car is further than road, create a new batch of roads
+				if (car.transform.position.z > (roadGenPos.z - tileSize))
+				{
+					//Add the new road and delete old section if behind camera
+					sectionList.Add(Instantiate(road, roadGenPos, Quaternion.identity));
+					if (sectionList.Count > 5)
+					{
+						Destroy(sectionList[0]);
+						sectionList.RemoveAt(0);
+					}
+					//Increase generated z by tile size
+					roadGenPos.z += tileSize;
+					//Add 1 to level counter
+					levelCounter++;
+					//Check if new level and then increase the tree spawn
+					if (levelCounter >= levelSizeByTile)
+					{
+						car.GetComponent<CarScript>().speed += speedIncrease;
+						levelCounter = 0;
+						obstaclesPerSecond -= obstaclesIncreasePerLevel;
 					}
 				}
-				//Generate road obstacles
-				rand = Random.Range(0, 9);
-				if (rand > 3)
-				{
-					GameObject roadObject = Instantiate(roadObstacles[Random.Range(0, roadObstacles.Length)], new Vector3(Random.Range(0, 20), roadGenPos.y + 1f, Random.Range(roadGenPos.z, (roadGenPos.z * 10) + (tileSize + 1))), Quaternion.identity);
-					roadObject.transform.parent = sectionList[sectionList.Count - 1].transform;
-				}
-				//Reset timer
-				timer = 0;
+				
 			}
-			//If car is further than road, create a new batch of roads
-			if (car.transform.position.z > (roadGenPos.z - tileSize))
+			else
 			{
-				//Add the new road and delete old section if behind camera
-				sectionList.Add(Instantiate(road, roadGenPos, Quaternion.identity));
-				if (sectionList.Count > 5)
+				if (countDownTimer >= 0 && countDownTimer < 1 && countDownGameObject.GetComponent<UnityEngine.UI.Image>().sprite != countDownImage1)
 				{
-					Destroy(sectionList[0]);
-					sectionList.RemoveAt(0);
+					countDownGameObject.GetComponent<UnityEngine.UI.Image>().sprite = countDownImage1;
 				}
-				//Increase generated z by tile size
-				roadGenPos.z += tileSize;
-				//Add 1 to level counter
-				levelCounter++;
-				//Check if new level and then increase the tree spawn
-				if (levelCounter >= levelSizeByTile)
+				else if (countDownTimer >= 1 && countDownTimer < 2 && countDownGameObject.GetComponent<UnityEngine.UI.Image>().sprite != countDownImage2)
 				{
-					car.GetComponent<CarScript>().speed += speedIncrease;
-					levelCounter = 0;
-					obstaclesPerSecond -= obstaclesIncreasePerLevel;
+					countDownGameObject.GetComponent<UnityEngine.UI.Image>().sprite = countDownImage2;
 				}
+				else if (countDownTimer >= 2 && countDownTimer < 3 && countDownGameObject.GetComponent<UnityEngine.UI.Image>().sprite != countDownImage3)
+				{
+					countDownGameObject.GetComponent<UnityEngine.UI.Image>().sprite = countDownImage3;
+				}
+				countDownTimer -= Time.fixedDeltaTime;
 			}
+
 		}
     }
 
