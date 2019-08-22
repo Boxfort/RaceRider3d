@@ -15,9 +15,10 @@ public class CarScript : MonoBehaviour
     private float rotationDirection;
 	//Is car moving
 	private bool isCarMoving = false;
+	
 
 
-    void Start()
+	void Start()
     {
 		//Set orginal z rotation
         orginalZRotation = transform.rotation.z;
@@ -47,6 +48,10 @@ public class CarScript : MonoBehaviour
 				transform.Rotate(0f, 0f, rotationDirection);
 			}
 		}
+		else
+		{
+			GetComponent<Rigidbody>().velocity = Vector3.zero;
+		}
     }
 
 	//Car collision method
@@ -56,7 +61,9 @@ public class CarScript : MonoBehaviour
         if(collision.gameObject.tag == "Object")
         {
 			GameObject.Find("GameManger").GetComponent<GenScript>().EndGameScreenDisplay();
+			transform.Translate(new Vector3(0, 0, -1));
 			TurnOnOffCar(false);
+			
 		}
     }
 
@@ -69,7 +76,7 @@ public class CarScript : MonoBehaviour
 		else
 		{
 			isCarMoving = false;
-			GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+			
 		}
 	}
 }

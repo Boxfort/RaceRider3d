@@ -13,8 +13,11 @@ public class AutoMoveMainMenuCameraScript : MonoBehaviour
     //CameraSpeed
     [SerializeField]
     private float cameraSpeed;
+	
+	
     void Start()
     {
+		
         //Set starting point
         startingPosition = transform.position;
         //Set end point with the extended z axis
@@ -27,4 +30,6 @@ public class AutoMoveMainMenuCameraScript : MonoBehaviour
         //Ping pong between the start and end positions
         transform.position = Vector3.Lerp(startingPosition, endPosition, Mathf.PingPong(Time.fixedTime* cameraSpeed, 1));
     }
+
+	
 }

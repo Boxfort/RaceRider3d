@@ -29,7 +29,7 @@ public class GenScript : MonoBehaviour
     private float obstaclesIncreasePerLevel = 0.1f;
 	//Level score text UI component and the player level score
     [SerializeField]
-    private UnityEngine.UI.Text LevelScoreText;
+    private GameObject LevelScoreText;
     private float levelScore;
 	//EndGame Canvas which is displayed at a game over and gameEnded is set to true, to stop generation
 	[SerializeField]
@@ -64,8 +64,11 @@ public class GenScript : MonoBehaviour
 	[SerializeField]
 	private Sprite countDownImage3;
 	private float countDownTimer = 3f;
-    //Random int
-    private int rand;
+	//Image to turn black
+	[SerializeField]
+	private UnityEngine.UI.Image blackScreen;
+	//Random int
+	private int rand;
     private int rand2;
     //Timer
     private float timer;
@@ -90,9 +93,11 @@ public class GenScript : MonoBehaviour
     void Start()
     {
         //Set level score
-        LevelScoreText.text = levelScore.ToString();
-        //Assing the main car object in the scene
-        if(MainMenuScirpt.selectedCar == 0)
+        LevelScoreText.GetComponent<UnityEngine.UI.Text>().text = levelScore.ToString();
+		//Set fade to black image
+		blackScreen = GameObject.Find("FadeImage").GetComponent<UnityEngine.UI.Image>();
+		//Assing the main car object in the scene
+		if (MainMenuScirpt.selectedCar == 0)
 		{
 			car = Instantiate(normalCar, carSpawnTransform.position,carSpawnTransform.rotation);
 		}
@@ -133,7 +138,7 @@ public class GenScript : MonoBehaviour
 				//Incremented timer, level score and the level score text 
 				timer += Time.fixedDeltaTime;
 				levelScore += Time.fixedDeltaTime;
-				LevelScoreText.text = Mathf.Round(levelScore).ToString();
+				LevelScoreText.GetComponent<UnityEngine.UI.Text>().text = Mathf.Round(levelScore).ToString();
 				//Timer activation to generate obstacles
 				if (timer > obstaclesPerSecond)
 				{
@@ -143,12 +148,12 @@ public class GenScript : MonoBehaviour
 					rand = Random.Range(0, 2);
 					if (rand == 0)
 					{
-						GameObject forestObject = Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(-1, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 2) + (tileSize + 1))), Quaternion.Euler(-90f, 0, 0));
+						GameObject forestObject = Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(-1, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z) + (tileSize + 1))), Quaternion.Euler(-90f, 0, 0));
 						forestObject.transform.parent = sectionList[sectionList.Count - 1].transform;
 					}
 					else
 					{
-						GameObject forestObject = Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(21, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 2) + (tileSize + 1))), Quaternion.Euler(-90f, 0, 0));
+						GameObject forestObject = Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(21, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z) + (tileSize + 1))), Quaternion.Euler(-90f, 0, 0));
 						forestObject.transform.parent = sectionList[sectionList.Count - 1].transform;
 					}
 					//Generate foliage on left and right in chunks of 25
@@ -157,15 +162,15 @@ public class GenScript : MonoBehaviour
 						//Foliage limit
 						if (foliageObjectList.Count < 300)
 						{
-							GameObject foliageObject1 = Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(-6, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 2) + (tileSize + 1))), Quaternion.identity);
-							GameObject foliageObject2 = Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(26, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z * 2) + (tileSize + 1))), Quaternion.identity);
+							GameObject foliageObject1 = Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(-6, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z) + (tileSize + 1))), Quaternion.identity);
+							GameObject foliageObject2 = Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(26, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z) + (tileSize + 1))), Quaternion.identity);
 							foliageObject1.transform.parent = sectionList[sectionList.Count - 1].transform;
 							foliageObject2.transform.parent = sectionList[sectionList.Count - 1].transform;
 						}
 					}
 					//Generate road obstacles
 					rand = Random.Range(0, 9);
-					if (rand > 3)
+					if (rand > 2)
 					{
 						GameObject roadObject = Instantiate(roadObstacles[Random.Range(0, roadObstacles.Length)], new Vector3(Random.Range(0, 20), roadGenPos.y + 1f, Random.Range(roadGenPos.z, (roadGenPos.z * 10) + (tileSize + 1))), Quaternion.identity);
 						roadObject.transform.parent = sectionList[sectionList.Count - 1].transform;
@@ -220,17 +225,20 @@ public class GenScript : MonoBehaviour
 	//Method called when the game is over
 	public void EndGameScreenDisplay()
 	{
+		//FadeCamerToBlack
+		FadeCameraToBlack();
+		Vector3 oldPosition = LevelScoreText.GetComponent<RectTransform>().localPosition;
+		Vector3 newPosition = new Vector3(oldPosition.x, 90, oldPosition.z);
+		LevelScoreText.GetComponent<RectTransform>().localPosition = Vector3.Lerp(oldPosition, newPosition, 2	);
+
 		//Show end canvas and stop generation
 		endGameCanvas.SetActive(true);
 		//Set end score and end gold text
 		endScoreText.text = Mathf.RoundToInt(levelScore).ToString();
 		endGoldText.text = Mathf.RoundToInt(levelScore).ToString();
 		//Add gold to players playerprefs
-		MainMenuScirpt.gold += Mathf.RoundToInt(levelScore);
-		PlayerPrefs.SetInt("gold", MainMenuScirpt.gold);
-		PlayerPrefs.Save();
+		MainMenuScirpt.SetGold(MainMenuScirpt.GetGold() + Mathf.RoundToInt(levelScore));
 		//set game to end and levelscore text to empty
-		LevelScoreText.text = "";
 		gameEnded = true;
 	}
 
@@ -246,6 +254,13 @@ public class GenScript : MonoBehaviour
 	{
 		//Sent player to the main menu
 		SceneManager.LoadScene("MainMenu");
+	}
+
+	public void FadeCameraToBlack()
+	{
+		blackScreen.color = Color.black;
+		blackScreen.canvasRenderer.SetAlpha(0.0f);
+		blackScreen.CrossFadeAlpha(1.0f, 2, false);
 	}
 }
 

@@ -24,10 +24,25 @@ public class MainMenuScirpt : MonoBehaviour
 	private GameObject leaderBoardMenuCanvas;
 	[SerializeField]
 	private GameObject settingMenuCanvas;
-	//Player gold
-	public static int gold;
+
 	//Player selected car
 	public static int selectedCar = 0;
+	//Player gold
+	public static int gold;
+	public static int GetGold()
+	{
+		return gold;
+	}
+	public static void SetGold(int value)
+	{
+		gold = value;
+		PlayerPrefs.SetInt("gold", value);
+		PlayerPrefs.Save();
+		if (goldText != null)
+		{
+			goldText.GetComponent<UnityEngine.UI.Text>().text = gold.ToString();
+		}
+	}
 	//Gold text
 	[SerializeField]
 	private static GameObject goldText;
@@ -43,21 +58,12 @@ public class MainMenuScirpt : MonoBehaviour
 		//If player new set gold to see, other wise load 
 		if (PlayerPrefs.HasKey("gold"))
 		{
-			gold = PlayerPrefs.GetInt("gold");
+			SetGold( PlayerPrefs.GetInt("gold"));
 		}
 		else
 		{
-			gold = 0;
-			PlayerPrefs.SetInt("gold", 0);
+			SetGold(0);
 		}
-		UpdateGold();
-	}
-
-	//Update gold
-	public static void UpdateGold()
-	{
-		goldText.GetComponent<UnityEngine.UI.Text>().text = gold.ToString();
-		PlayerPrefs.Save();
 	}
 
     //Update method

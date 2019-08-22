@@ -115,8 +115,7 @@ public class CustomiseScript : MonoBehaviour
 		//If player has enough gold, minus the gold and update car data and text data
 		if(MainMenuScirpt.gold >= carsDetailsArray[currentCarPosition].price)
 		{
-			MainMenuScirpt.gold -= carsDetailsArray[currentCarPosition].price;
-			PlayerPrefs.GetInt("gold", MainMenuScirpt.gold);
+			MainMenuScirpt.SetGold(MainMenuScirpt.GetGold() - carsDetailsArray[currentCarPosition].price);
 			carsDetailsArray[currentCarPosition].unlocked = true;
 			UpdateCarData();
 			UpdateText();
@@ -136,7 +135,6 @@ public class CustomiseScript : MonoBehaviour
 		nameText.text = "Name: " + carsDetailsArray[currentCarPosition].name;
 		priceText.text = "Price: " + carsDetailsArray[currentCarPosition].price;
 		speedText.text = "Speed: " + carsDetailsArray[currentCarPosition].speed;
-		MainMenuScirpt.UpdateGold();
 
 		if(!carsDetailsArray[currentCarPosition].unlocked)
 		{
