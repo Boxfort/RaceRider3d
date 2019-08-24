@@ -16,11 +16,11 @@
 
         <!-- The space in these forces it to be interpreted as a string vs. int -->
         <meta-data android:name="com.google.android.gms.games.APP_ID"
-            android:value="\u003" />
+            android:value="\u0039349994074" />
 
         <!-- Keep track of which plugin is being used -->
         <meta-data android:name="com.google.android.gms.games.unityVersion"
-            android:value="\u0030.9.64" />
+            android:value="\u0030.10.01" />
 
         <activity android:name="com.google.games.bridge.NativeBridgeActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />

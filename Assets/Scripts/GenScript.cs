@@ -230,7 +230,6 @@ public class GenScript : MonoBehaviour
 		Vector3 oldPosition = LevelScoreText.GetComponent<RectTransform>().localPosition;
 		Vector3 newPosition = new Vector3(oldPosition.x, 90, oldPosition.z);
 		LevelScoreText.GetComponent<RectTransform>().localPosition = Vector3.Lerp(oldPosition, newPosition, 2	);
-
 		//Show end canvas and stop generation
 		endGameCanvas.SetActive(true);
 		//Set end score and end gold text
@@ -254,6 +253,11 @@ public class GenScript : MonoBehaviour
 	{
 		//Sent player to the main menu
 		SceneManager.LoadScene("MainMenu");
+	}
+
+	//Method for when sumbit score button is pressed
+	public void SumbitScore()
+	{
 	}
 
 	public void FadeCameraToBlack()

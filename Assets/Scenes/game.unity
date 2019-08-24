@@ -316,6 +316,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ExitToMenuButton
       objectReference: {fileID: 0}
+    - target: {fileID: 427230930187052959, guid: 131c657adbfe34b4199daa40e9693bde,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 335787050}
+    - target: {fileID: 427230930187052959, guid: 131c657adbfe34b4199daa40e9693bde,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SumbitScore
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 131c657adbfe34b4199daa40e9693bde, type: 3}
 --- !u!1 &243012808

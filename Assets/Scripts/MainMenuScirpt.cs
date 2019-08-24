@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
+using UnityEngine.SocialPlatforms;
 
 public class MainMenuScirpt : MonoBehaviour
 {
@@ -47,9 +50,11 @@ public class MainMenuScirpt : MonoBehaviour
 	[SerializeField]
 	private static GameObject goldText;
 
+
 	//Start method
 	void Start()
 	{
+
 		//Find gold text
 		goldText = GameObject.Find("GoldText");
 		//Set starting position and end position vectors

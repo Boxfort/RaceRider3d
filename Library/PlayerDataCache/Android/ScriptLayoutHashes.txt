@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/Users/dillon/Documents/GitHub/RaceRider3D/RaceRider3dEndBeta.apk
+C:/Users/dillon/Documents/GitHub/RaceRider3D/RaceRiderAAB.aab
 SceneListBegin?
 Assets/Scenes/MainMenu.unity
 Assets/Scenes/game.unity
@@ -106,7 +106,7 @@ f476f90b17bbb676cf2c0967453f05ef Unity.TextMeshPro.dll:TMPro.TMP_Asset
 783fa4e4dc6da7064802c0c869ed2ce1 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessResources
 3e402a8de2e3e8efd4a4b53fe4a24c72 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 bc18fd08f83bd360404908e9e858d43f Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.AutoExposure
-cc1edec22e43635ea7e27b01a4b7dbc9 Assembly-CSharp.dll:.CarScript
+9e6f1dbe73ca77b9c096d9bfd1fc4063 Assembly-CSharp.dll:.CarScript
 7f3870a35284c907dcd23d99a6044ffb Assembly-CSharp.dll:.AutoMoveMainMenuCameraScript
 e3f43e6f8f8e19d2705f5d6c0f2a1b1d Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessDebug
 732d325f353f7a5f6ef1a88e97abcfc7 Unity.TextMeshPro.dll:TMPro.TextContainer
@@ -124,7 +124,7 @@ d11b2ff7cb196c7288ec3041bd921b13 UnityEngine.TestRunner.dll:UnityEngine.TestTool
 3433a7186795ccba1b16e07a93b19762 Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 98c528cbdae5d69f28344025e7b6a68b Unity.Analytics.DataPrivacy.dll:UnityEngine.Analytics.DataPrivacyButton
 b77f491f4d293c2f571bfcc70033be66 Unity.Timeline.dll:UnityEngine.Timeline.AudioTrack
-d21b198f71ba71f780c5fce7cad34639 Assembly-CSharp.dll:.GenScript
+fa54dfef62864060956d29cabcaad367 Assembly-CSharp.dll:.GenScript
 9f09696ba64c2b1f2d1885af8ffcf92e Unity.Timeline.dll:UnityEngine.Timeline.MarkerTrack
 870940a0625117f7e49a7b05e064dd93 Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 3e402a8de2e3e8efd4a4b53fe4a24c72 Assembly-CSharp.dll:GooglePlayGames.OurUtils.PlayGamesHelperObject
@@ -136,3 +136,4 @@ b2c671247553fb8f8bfe4d2f89f4bca7 Unity.Postprocessing.Runtime.dll:UnityEngine.Re
 98b3b371395017a40db0a6475b7dd172 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 d0c04467fb1e36d452dc6ca9a01bf69d Unity.Timeline.dll:UnityEngine.Timeline.SignalEmitter
 9f09696ba64c2b1f2d1885af8ffcf92e Unity.Timeline.dll:UnityEngine.Timeline.PlayableTrack
+41859c26ebcefe31037eb91fba3c209c Assembly-CSharp.dll:.SettingsMenu
