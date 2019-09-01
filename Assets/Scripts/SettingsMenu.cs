@@ -13,9 +13,20 @@ public class SettingsMenu : MonoBehaviour
 	//TiltFactor 
 	public static float tiltFactor = 0.25f;
 
-    // Start is called before the first frame update
-    void Start()
+	//Music Volume slider
+	[SerializeField]
+	private UnityEngine.UI.Slider musicVolumeSlider;
+	//Music volume text
+	[SerializeField]
+	private UnityEngine.UI.Text musicVolumeText;
+	//MusicVolume 
+	public static float musicVolume = 0.5f;
+	//Music player object audio source
+	private AudioSource musicPlayer;
+	// Start is called before the first frame update
+	void Start()
     {
+		
 		if (PlayerPrefs.HasKey("tiltFactor"))
 		{
 			tiltFactor = PlayerPrefs.GetFloat("tiltFactor");
@@ -26,6 +37,19 @@ public class SettingsMenu : MonoBehaviour
 		}
 		tiltFactorSlider.value = tiltFactor;
 		tiltFactorText.text = "Tilt Factor: " + tiltFactorSlider.value.ToString("0.00");
+
+		if (PlayerPrefs.HasKey("musicVolume"))
+		{
+			musicVolume = PlayerPrefs.GetFloat("musicVolume");
+		}
+		else
+		{
+			PlayerPrefs.SetFloat("musicVolume", 0.5f);
+		}
+		musicVolumeSlider.value = musicVolume;
+		musicVolumeText.text = "Music Volume: " + musicVolumeSlider.value.ToString("0.00");
+		musicPlayer = GameObject.Find("MusicPlayer").GetComponent<AudioSource>();
+		musicPlayer.volume = musicVolume;
 		PlayerPrefs.Save();
 	}
 
@@ -37,6 +61,14 @@ public class SettingsMenu : MonoBehaviour
 			tiltFactor = tiltFactorSlider.value;
 			tiltFactorText.text = "Tilt Factor: " + tiltFactorSlider.value.ToString("0.00");
 			PlayerPrefs.SetFloat("tiltFactor", tiltFactor);
+			PlayerPrefs.Save();
+		}
+		if(musicVolumeSlider.value != musicVolume)
+		{
+			musicVolume = musicVolumeSlider.value;
+			musicVolumeText.text = "Music Volume: " + musicVolumeSlider.value.ToString("0.00");
+			musicPlayer.volume = musicVolume;
+			PlayerPrefs.SetFloat("musicVolume", musicVolume);
 			PlayerPrefs.Save();
 		}
     }
