@@ -125,6 +125,7 @@
     <Compile Include="Assets\GooglePlayGames\Platforms\TokenClient.cs" />
     <Compile Include="Assets\GooglePlayGames\PluginVersion.cs" />
     <Compile Include="Assets\GPGSIds.cs" />
+    <Compile Include="Assets\MusicObjectScript.cs" />
     <Compile Include="Assets\Scripts\AutoMoveMainMenuCameraScript.cs" />
     <Compile Include="Assets\Scripts\CarScript.cs" />
     <Compile Include="Assets\Scripts\CustomiseScript.cs" />
