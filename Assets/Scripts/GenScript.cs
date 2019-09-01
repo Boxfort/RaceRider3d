@@ -87,6 +87,14 @@ public class GenScript : MonoBehaviour
     private List<GameObject> foliageObjectList = new List<GameObject>();
     //Road Obstacles list
     private List<GameObject> roadObstaclesList = new List<GameObject>();
+	//Ready and go auido sources and files
+	[SerializeField]
+	private AudioSource countDownAudioSource;
+	[SerializeField]
+	private AudioClip readyClip;
+	[SerializeField]
+	private AudioClip goClip;
+
 
 
     //Start function
@@ -124,6 +132,10 @@ public class GenScript : MonoBehaviour
         roadGenPos.z += tileSize;
         //Set timer to max out at start
         timer = obstaclesPerSecond;
+
+		//Set audio sources volume
+		countDownAudioSource.volume = SettingsMenu.musicVolume;
+
     }
 
     //FixedUpdate function
@@ -207,14 +219,23 @@ public class GenScript : MonoBehaviour
 				if (countDownTimer >= 0 && countDownTimer < 1 && countDownGameObject.GetComponent<UnityEngine.UI.Image>().sprite != countDownImage1)
 				{
 					countDownGameObject.GetComponent<UnityEngine.UI.Image>().sprite = countDownImage1;
+					countDownGameObject.GetComponent<UnityEngine.UI.Image>().color = Color.green;
+					countDownAudioSource.PlayOneShot(goClip);
 				}
 				else if (countDownTimer >= 1 && countDownTimer < 2 && countDownGameObject.GetComponent<UnityEngine.UI.Image>().sprite != countDownImage2)
 				{
 					countDownGameObject.GetComponent<UnityEngine.UI.Image>().sprite = countDownImage2;
+					countDownAudioSource.PlayOneShot(readyClip);
+					countDownAudioSource.PlayOneShot(readyClip);
+					countDownAudioSource.PlayOneShot(readyClip);
+					countDownAudioSource.PlayOneShot(readyClip);
+					countDownAudioSource.PlayOneShot(readyClip);
+					Debug.Log("Playing sound");
 				}
 				else if (countDownTimer >= 2 && countDownTimer < 3 && countDownGameObject.GetComponent<UnityEngine.UI.Image>().sprite != countDownImage3)
 				{
 					countDownGameObject.GetComponent<UnityEngine.UI.Image>().sprite = countDownImage3;
+					countDownAudioSource.PlayOneShot(readyClip);
 				}
 				countDownTimer -= Time.fixedDeltaTime;
 			}

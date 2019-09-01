@@ -22,6 +22,7 @@ public class SettingsMenu : MonoBehaviour
 	//MusicVolume 
 	public static float musicVolume = 0.5f;
 	//Music player object audio source
+	[SerializeField]
 	private AudioSource musicPlayer;
 	// Start is called before the first frame update
 	void Start()
@@ -48,7 +49,6 @@ public class SettingsMenu : MonoBehaviour
 		}
 		musicVolumeSlider.value = musicVolume;
 		musicVolumeText.text = "Music Volume: " + musicVolumeSlider.value.ToString("0.00");
-		musicPlayer = GameObject.Find("MusicPlayer").GetComponent<AudioSource>();
 		musicPlayer.volume = musicVolume;
 		PlayerPrefs.Save();
 	}

@@ -67,6 +67,10 @@ public class MainMenuScirpt : MonoBehaviour
 		{
 			SetGold(0);
 		}
+		if (PlayerPrefs.HasKey("musicVolume"))
+		{
+			GameObject.Find("MusicPlayer").GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("musicVolume");
+		}
 	}
 
     //Update method
