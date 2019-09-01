@@ -11,7 +11,7 @@ public class SettingsMenu : MonoBehaviour
 	[SerializeField]
 	private UnityEngine.UI.Text tiltFactorText;
 	//TiltFactor 
-	public static float tiltFactor = 0.25f;
+	public static float tiltFactor = 0.15f;
 
 	//Music Volume slider
 	[SerializeField]
@@ -34,7 +34,7 @@ public class SettingsMenu : MonoBehaviour
 		}
 		else
 		{
-			PlayerPrefs.SetFloat("tiltFactor", 0.25f);
+			PlayerPrefs.SetFloat("tiltFactor", 0.15f);
 		}
 		tiltFactorSlider.value = tiltFactor;
 		tiltFactorText.text = "Tilt Factor: " + tiltFactorSlider.value.ToString("0.00");
