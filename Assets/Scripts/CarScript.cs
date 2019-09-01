@@ -27,10 +27,6 @@ public class CarScript : MonoBehaviour
 		tiltFactor = SettingsMenu.tiltFactor;
 		//Set orginal z rotation
         orginalZRotation = transform.rotation.z;
-		//Set mainCamera
-		mainCamera = Camera.main;
-		//Set default camera rotation
-		defaultCameraRotation = mainCamera.transform.rotation.eulerAngles;
     }
     void FixedUpdate()
     {
@@ -62,7 +58,6 @@ public class CarScript : MonoBehaviour
 			GetComponent<Rigidbody>().velocity = Vector3.zero;
 			GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 		}
-		mainCamera.transform.rotation = Quaternion.Euler(defaultCameraRotation);
     }
 
 	//Car collision method

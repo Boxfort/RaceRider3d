@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{CD3419E4-8E36-4AA4-7517-42A18CADA4CF}</ProjectGuid>
+    <ProjectGuid>{A1AD5151-F6E9-9EDD-377C-96FC72EC158B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -78,64 +78,64 @@
     <None Include="Assets\GooglePlayGames\Editor\GooglePlayGamesPlugin_v0.10.01.txt" />
     <None Include="Assets\GooglePlayGames\Editor\template-Constants.txt" />
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -333,34 +333,34 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="Google.IOSResolver_v1.2.124.0">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Assets/PlayServicesResolver/Editor/Google.IOSResolver_v1.2.124.0.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Assets/PlayServicesResolver/Editor/Google.IOSResolver_v1.2.124.0.dll</HintPath>
     </Reference>
     <Reference Include="Google.JarResolver_v1.2.124.0">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Assets/PlayServicesResolver/Editor/Google.JarResolver_v1.2.124.0.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Assets/PlayServicesResolver/Editor/Google.JarResolver_v1.2.124.0.dll</HintPath>
     </Reference>
     <Reference Include="Google.VersionHandler">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
     </Reference>
     <Reference Include="Google.VersionHandlerImpl_v1.2.124.0">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Assets/PlayServicesResolver/Editor/Google.VersionHandlerImpl_v1.2.124.0.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Assets/PlayServicesResolver/Editor/Google.VersionHandlerImpl_v1.2.124.0.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/PackageCache/com.unity.purchasing@2.0.6/Editor/UnityEditor.Purchasing.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/PackageCache/com.unity.purchasing@2.0.6/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3D/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.2f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -719,7 +719,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{1A7F74A4-ECB6-29EC-0237-D7E6B9629A60}</Project>
+      <Project>{3528CDC0-21E1-EAB8-4132-B35684340206}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
   </ItemGroup>
