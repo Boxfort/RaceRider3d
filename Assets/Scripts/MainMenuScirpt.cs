@@ -24,8 +24,6 @@ public class MainMenuScirpt : MonoBehaviour
 	[SerializeField]
 	private GameObject CustomiseMenuCanvas;
 	[SerializeField]
-	private GameObject leaderBoardMenuCanvas;
-	[SerializeField]
 	private GameObject settingMenuCanvas;
 
 	//Player selected car
@@ -98,7 +96,6 @@ public class MainMenuScirpt : MonoBehaviour
 	public void LeaderBoardButton()
 	{
 		mainMenuCanvas.SetActive(false);
-		leaderBoardMenuCanvas.SetActive(true);
 	}
 
 	//Method for when ther settings button is pressed
@@ -113,7 +110,6 @@ public class MainMenuScirpt : MonoBehaviour
 	{
 		mainMenuCanvas.SetActive(true);
 		CustomiseMenuCanvas.SetActive(false);
-		leaderBoardMenuCanvas.SetActive(false);
 		settingMenuCanvas.SetActive(false);	
 	}
 
