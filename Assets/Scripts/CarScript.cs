@@ -68,7 +68,7 @@ public class CarScript : MonoBehaviour
         {
 			transform.Translate(new Vector3(0, 0, -4));
 			TurnOnOffCar(false);
-			GameObject.Find("GameManger").GetComponent<GenScript>().EndGameScreenDisplay();
+			GameObject.Find("GameManger").GetComponent<GameMangerScript>().EndGameScreenDisplay();
 		}
     }
 
