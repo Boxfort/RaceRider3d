@@ -130,7 +130,7 @@
     <Compile Include="Assets\Scripts\CarScript.cs" />
     <Compile Include="Assets\Scripts\CustomiseScript.cs" />
     <Compile Include="Assets\Scripts\FollowScript.cs" />
-    <Compile Include="Assets\Scripts\GenScript.cs" />
+    <Compile Include="Assets\Scripts\GameMangerScript.cs" />
     <Compile Include="Assets\Scripts\MainMenuScirpt.cs" />
     <Compile Include="Assets\Scripts\PlayServiceScript.cs" />
     <Compile Include="Assets\Scripts\SettingsMenu.cs" />
@@ -139,8 +139,14 @@
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
@@ -151,8 +157,20 @@
     <Reference Include="Unity.Postprocessing.Editor">
       <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.XR.LegacyInputHelpers">
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Editor">
+      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
       <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
@@ -165,24 +183,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
       <HintPath>C:/Users/dillon/Documents/GitHub/RaceRider3d/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>

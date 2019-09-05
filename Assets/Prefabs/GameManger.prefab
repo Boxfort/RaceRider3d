@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7788243723477744168}
-  - component: {fileID: 7788243723477744169}
+  - component: {fileID: 1786674179881359685}
   m_Layer: 0
   m_Name: GameManger
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7788243723477744169
+--- !u!114 &1786674179881359685
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,11 +40,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 7788243723477744182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
-  m_Script: {fileID: 11500000, guid: b72d677cf87f4374ca0983f1f213f6f9, type: 3}
+  m_Script: {fileID: 11500000, guid: e1f42740f0c5e9d4b97580e22dc75d1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  road: {fileID: 7958163248820440990, guid: fb0d5a64e7ad66146a74fae1c5e75dbf, type: 3}
-  tree: {fileID: 1155960585825282679, guid: adf8ca81c388bf94694e68e127fad7b4, type: 3}
-  tileSize: 100
-  speed: 50
+  road: {fileID: 1348900426, guid: 763c104a666549f11afcf909d7226107, type: 3}
+  foliage:
+  - {fileID: 4648331063725107290, guid: d18676ab9c3294f40a37505b3fb289d5, type: 3}
+  - {fileID: 3027281598344047892, guid: 21c3287dac0273543a59ccb9eb48f083, type: 3}
+  - {fileID: 5014345675328399527, guid: b9e66f1680b1c604596cda7e1d2b7fbb, type: 3}
+  - {fileID: 1566716909080593128, guid: b19c92b34b6eeb9418466540545e7c79, type: 3}
+  forestObstacles:
+  - {fileID: 5043505660038340612, guid: 72bef519cfe1f3f40bef212d93848609, type: 3}
+  - {fileID: 2753209310280188085, guid: 46a4c89babf574a43bd9cbacc881d8aa, type: 3}
+  - {fileID: 3465686337530930208, guid: 95f658eb795bad54db21077d95e0935c, type: 3}
+  - {fileID: 8682298008120354464, guid: 797681b714f744644b888555c8790e2b, type: 3}
+  - {fileID: 1271252656290528523, guid: b64523cf15837d04686b94465998cb84, type: 3}
+  roadObstacles:
+  - {fileID: 6277393350335898211, guid: 3f642ee40e1901943bdb1b5c098c39d3, type: 3}
+  - {fileID: 3946697754455063410, guid: 2c876bbc861e21740a7afc54c8a86891, type: 3}
+  - {fileID: 2713574523180605904, guid: 426b8c3479533ab4d9e6e256526a33cf, type: 3}
+  - {fileID: 1353482253319388467, guid: 9c1f9e844920cce458e2888d83bf6f14, type: 3}
+  tileSize: 400
+  levelSizeByTile: 10
+  obstaclesIncreasePerLevel: 0.1
+  LevelScoreText: {fileID: 0}
+  endGameCanvas: {fileID: 0}
+  endGoldText: {fileID: 0}
+  endScoreText: {fileID: 0}
+  carSpawnTransform: {fileID: 0}
+  normalCar: {fileID: 1496381163, guid: 0234ce6f617f4b649b875410d5f65678, type: 3}
+  suvCar: {fileID: 3708601135746885465, guid: 4a347cccc28cfb74b877587a05a34520, type: 3}
+  taxiCar: {fileID: 2309237159608495277, guid: f6ea122b8480b804ab4dff377045051b, type: 3}
+  sportsCar: {fileID: 2264486788406195699, guid: 5aaef82fc7a2b5646afff9c4e83e6f46,
+    type: 3}
+  copCar: {fileID: 7155709527043832201, guid: 192ba7dead7ab36499252837e39838d7, type: 3}
+  countDownGameObject: {fileID: 0}
+  countDownImage1: {fileID: 21300000, guid: b404b78ea53e9d947b3a7956cd0ad502, type: 3}
+  countDownImage2: {fileID: 21300000, guid: 5ded5d0943f9959448a811185cd6c8f6, type: 3}
+  countDownImage3: {fileID: 21300000, guid: 1d9a19eaa027be542a0f01961a7e5d9e, type: 3}
+  blackScreen: {fileID: 0}
+  countDownAudioSource: {fileID: 0}
+  readyClip: {fileID: 8300000, guid: 696437330c42d304cb6bb408fc0a68a9, type: 3}
+  goClip: {fileID: 8300000, guid: eb40af9e553ce1a4ba8e5df41c6d708b, type: 3}

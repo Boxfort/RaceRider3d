@@ -3,34 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GenScript : MonoBehaviour
+public class GameMangerScript : MonoBehaviour
 {
-    //Road Section  object
-    [SerializeField]
-    private GameObject road;
-    //Car object, already placed in the scene
-    private GameObject car;
-    private Rigidbody carRB;
-    [SerializeField]
-    private GameObject[] foliage;
-    [SerializeField]
-    private GameObject[] forestObstacles;
-    [SerializeField]
-    private GameObject[] roadObstacles;
-    //Tile size
-    [SerializeField]
-    private float tileSize = 400f;
-    //Level Size By Tile
-    [SerializeField]
-    private int levelSizeByTile = 10;
-    private int levelCounter = 0;
-    //Tree Decrease per level
-    [SerializeField]
-    private float obstaclesIncreasePerLevel = 0.1f;
+
+	//Road Section  object
+	[SerializeField]
+	private GameObject road;
+	//Car object, already placed in the scene
+	private GameObject car;
+	private Rigidbody carRB;
+	[SerializeField]
+	private GameObject[] foliage;
+	[SerializeField]
+	private GameObject[] forestObstacles;
+	[SerializeField]
+	private GameObject[] roadObstacles;
+	//Tile size
+	[SerializeField]
+	private float tileSize = 400f;
+	//Level Size By Tile
+	[SerializeField]
+	private int levelSizeByTile = 10;
+	private int levelCounter = 0;
+	//Tree Decrease per level
+	[SerializeField]
+	private float obstaclesIncreasePerLevel = 0.1f;
 	//Level score text UI component and the player level score
-    [SerializeField]
-    private GameObject LevelScoreText;
-    private float levelScore;
+	[SerializeField]
+	private GameObject LevelScoreText;
+	private float levelScore;
 	//EndGame Canvas which is displayed at a game over and gameEnded is set to true, to stop generation
 	[SerializeField]
 	private GameObject endGameCanvas;
@@ -69,24 +70,24 @@ public class GenScript : MonoBehaviour
 	private UnityEngine.UI.Image blackScreen;
 	//Random int
 	private int rand;
-    private int rand2;
-    //Timer
-    private float timer;
-    //Speed
-    private float speed = 100f;
-    private float speedIncrease = 10f;
-    //Tree gen amount
-    private float obstaclesPerSecond = 0.4f;
-    //Position of new Road placements
-    private Vector3 roadGenPos = new Vector3(0, 0, 0);
-    //Section List
-    private List<GameObject> sectionList = new List<GameObject>();
-    //Forest obstacles list
-    private List<GameObject> forestObstaclesList = new List<GameObject>();
-    //Foilage list
-    private List<GameObject> foliageObjectList = new List<GameObject>();
-    //Road Obstacles list
-    private List<GameObject> roadObstaclesList = new List<GameObject>();
+	private int rand2;
+	//Timer
+	private float timer;
+	//Speed
+	private float speed = 100f;
+	private float speedIncrease = 10f;
+	//Tree gen amount
+	private float obstaclesPerSecond = 0.4f;
+	//Position of new Road placements
+	private Vector3 roadGenPos = new Vector3(0, 0, 0);
+	//Section List
+	private List<GameObject> sectionList = new List<GameObject>();
+	//Forest obstacles list
+	private List<GameObject> forestObstaclesList = new List<GameObject>();
+	//Foilage list
+	private List<GameObject> foliageObjectList = new List<GameObject>();
+	//Road Obstacles list
+	private List<GameObject> roadObstaclesList = new List<GameObject>();
 	//Ready and go auido sources and files
 	[SerializeField]
 	private AudioSource countDownAudioSource;
@@ -96,20 +97,20 @@ public class GenScript : MonoBehaviour
 	private AudioClip goClip;
 
 
-
-    //Start function
-    void Start()
-    {
-        //Set level score
-        LevelScoreText.GetComponent<UnityEngine.UI.Text>().text = levelScore.ToString();
+	// Start is called before the first frame update
+	//Start function
+	void Start()
+	{
+		//Set level score
+		LevelScoreText.GetComponent<UnityEngine.UI.Text>().text = levelScore.ToString();
 		//Set fade to black image
 		blackScreen = GameObject.Find("FadeImage").GetComponent<UnityEngine.UI.Image>();
 		//Assing the main car object in the scene
 		if (MainMenuScirpt.selectedCar == 0)
 		{
-			car = Instantiate(normalCar, carSpawnTransform.position,carSpawnTransform.rotation);
+			car = Instantiate(normalCar, carSpawnTransform.position, carSpawnTransform.rotation);
 		}
-		else if(MainMenuScirpt.selectedCar == 1)
+		else if (MainMenuScirpt.selectedCar == 1)
 		{
 			car = Instantiate(suvCar, carSpawnTransform.position, carSpawnTransform.rotation);
 		}
@@ -128,22 +129,21 @@ public class GenScript : MonoBehaviour
 
 		//Generate the first tile section
 		sectionList.Add(Instantiate(road, roadGenPos, Quaternion.identity));
-        //After generation first road move roadGen position
-        roadGenPos.z += tileSize;
-        //Set timer to max out at start
-        timer = obstaclesPerSecond;
+		//After generation first road move roadGen position
+		roadGenPos.z += tileSize;
+		//Set timer to max out at start
+		timer = obstaclesPerSecond;
 
 		//Set audio sources volume
 		countDownAudioSource.volume = SettingsMenu.musicVolume;
+	}
 
-    }
-
-    //FixedUpdate function
-    void FixedUpdate()
-    {
-		if(!gameEnded)
+	//FixedUpdate function
+	void FixedUpdate()
+	{
+		if (!gameEnded)
 		{
-			if(countDownTimer <= 0)
+			if (countDownTimer <= 0)
 			{
 				countDownGameObject.SetActive(false);
 				car.GetComponent<CarScript>().TurnOnOffCar(true);
@@ -212,7 +212,7 @@ public class GenScript : MonoBehaviour
 						obstaclesPerSecond -= obstaclesIncreasePerLevel;
 					}
 				}
-				
+
 			}
 			else
 			{
@@ -241,7 +241,7 @@ public class GenScript : MonoBehaviour
 			}
 
 		}
-    }
+	}
 
 	//Method called when the game is over
 	public void EndGameScreenDisplay()
@@ -250,7 +250,7 @@ public class GenScript : MonoBehaviour
 		FadeCameraToBlack();
 		Vector3 oldPosition = LevelScoreText.GetComponent<RectTransform>().localPosition;
 		Vector3 newPosition = new Vector3(oldPosition.x, 90, oldPosition.z);
-		LevelScoreText.GetComponent<RectTransform>().localPosition = Vector3.Lerp(oldPosition, newPosition, 2	);
+		LevelScoreText.GetComponent<RectTransform>().localPosition = Vector3.Lerp(oldPosition, newPosition, 2);
 		//Show end canvas and stop generation
 		endGameCanvas.SetActive(true);
 		//Set end score and end gold text
@@ -288,5 +288,3 @@ public class GenScript : MonoBehaviour
 		blackScreen.CrossFadeAlpha(1.0f, 2, false);
 	}
 }
-
-
