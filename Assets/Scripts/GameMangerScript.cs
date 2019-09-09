@@ -80,8 +80,10 @@ public class GameMangerScript : MonoBehaviour
 	private float obstaclesPerSecond = 0.4f;
 	//Position of new Road placements
 	private Vector3 roadGenPos = new Vector3(0, 0, 0);
-	//Section List
-	private List<GameObject> sectionList = new List<GameObject>();
+	//Sections list
+	private GameObject[] roadPieces = new GameObject[3];
+	[SerializeField]
+	private GameObject section;
 	//Forest obstacles list
 	private List<GameObject> forestObstaclesList = new List<GameObject>();
 	//Foilage list
@@ -95,6 +97,8 @@ public class GameMangerScript : MonoBehaviour
 	private AudioClip readyClip;
 	[SerializeField]
 	private AudioClip goClip;
+	//Triple counter
+	private bool passedFirstRoad = false;
 
 
 	// Start is called before the first frame update
@@ -103,8 +107,37 @@ public class GameMangerScript : MonoBehaviour
 	{
 		//Set level score
 		LevelScoreText.GetComponent<UnityEngine.UI.Text>().text = levelScore.ToString();
+
+		//Load in foliage
+		for (int i = 0; i < 75; i++)
+		{
+			foliageObjectList.Add(Instantiate(foliage[Random.Range(0, foliage.Length)], Vector3.zero, Quaternion.identity));
+		}
+		//Load in trees
+		for (int i = 0; i < 30; i++)
+		{
+			forestObstaclesList.Add(Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(100, 100, -100), Quaternion.Euler(-90, 0, 0)));
+		}
+		//Load in rocks
+		for (int i = 0; i < 5; i++)
+		{
+			roadObstaclesList.Add(Instantiate(roadObstacles[Random.Range(0, roadObstacles.Length)], new Vector3(100, 100, -100), Quaternion.identity));
+		}
+		//Create first road pieces
+		//Road 1 + foliage + trees
+		roadPieces[0] = Instantiate(section, new Vector3(0, 0, 0), Quaternion.identity);
+		MoveFoliageUp(0, (foliageObjectList.Count - 1) / 3, 0, tileSize * 3);
+		MoveTreesUp(0, (forestObstaclesList.Count - 1) / 3, 0, tileSize * 3);
+		MoveRocksUp(0, (roadObstaclesList.Count - 1) / 3, 0, tileSize * 3);
+		//Road 2 + foliage + trees
+		roadPieces[1] = Instantiate(section, new Vector3(0, 0, tileSize), Quaternion.identity);
+		//Road 3 + foliage + trees
+		roadPieces[2] = Instantiate(section, new Vector3(0, 0, tileSize * 2), Quaternion.identity);
+
+
 		//Set fade to black image
 		blackScreen = GameObject.Find("FadeImage").GetComponent<UnityEngine.UI.Image>();
+
 		//Assing the main car object in the scene
 		if (MainMenuScirpt.selectedCar == 0)
 		{
@@ -127,13 +160,6 @@ public class GameMangerScript : MonoBehaviour
 			car = Instantiate(copCar, carSpawnTransform.position, carSpawnTransform.rotation);
 		}
 
-		//Generate the first tile section
-		sectionList.Add(Instantiate(road, roadGenPos, Quaternion.identity));
-		//After generation first road move roadGen position
-		roadGenPos.z += tileSize;
-		//Set timer to max out at start
-		timer = obstaclesPerSecond;
-
 		//Set audio sources volume
 		countDownAudioSource.volume = SettingsMenu.musicVolume;
 	}
@@ -145,71 +171,46 @@ public class GameMangerScript : MonoBehaviour
 		{
 			if (countDownTimer <= 0)
 			{
+				//Turn off countdown object once counting has stop
 				countDownGameObject.SetActive(false);
-				car.GetComponent<CarScript>().TurnOnOffCar(true);
+
+				//Start car
+				if (!car.GetComponent<CarScript>().isCarMoving)
+				{
+					car.GetComponent<CarScript>().TurnOnOffCar(true);
+				}
+
 				//Incremented timer, level score and the level score text 
-				timer += Time.fixedDeltaTime;
 				levelScore += Time.fixedDeltaTime * (car.GetComponent<CarScript>().speed / 100);
 				LevelScoreText.GetComponent<UnityEngine.UI.Text>().text = Mathf.Round(levelScore).ToString();
-				//Timer activation to generate obstacles
-				if (timer > obstaclesPerSecond)
+
+				//Move road pieces infront of each other as the car drives
+				if (car.transform.position.z > tileSize)
 				{
-					//0 to -28 left side
-					//22 to 50 right side
-					//Generate forest obstacles on left or right
-					rand = Random.Range(0, 2);
-					if (rand == 0)
+					if (car.transform.position.z > roadPieces[0].transform.position.z && passedFirstRoad)
 					{
-						GameObject forestObject = Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(-1, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z) + (tileSize + 1))), Quaternion.Euler(-90f, 0, 0));
-						forestObject.transform.parent = sectionList[sectionList.Count - 1].transform;
+						roadPieces[2].transform.position = new Vector3(roadPieces[1].transform.position.x, roadPieces[1].transform.position.y, roadPieces[1].transform.position.z + tileSize);
+						MoveFoliageUp(0, ((foliageObjectList.Count - 1) / 3), roadPieces[1].transform.position.z + tileSize, roadPieces[1].transform.position.z + (tileSize * 2));
+						MoveTreesUp(0, ((forestObstaclesList.Count - 1) / 3), roadPieces[1].transform.position.z + tileSize, roadPieces[1].transform.position.z + (tileSize * 2));
+						MoveRocksUp(0, ((roadObstaclesList.Count - 1) / 3), roadPieces[1].transform.position.z + tileSize, roadPieces[1].transform.position.z + (tileSize * 2));
+						Debug.Log("Moving 2");
 					}
-					else
+					if (car.transform.position.z > roadPieces[1].transform.position.z)
 					{
-						GameObject forestObject = Instantiate(forestObstacles[Random.Range(0, forestObstacles.Length)], new Vector3(Random.Range(21, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z) + (tileSize + 1))), Quaternion.Euler(-90f, 0, 0));
-						forestObject.transform.parent = sectionList[sectionList.Count - 1].transform;
+						roadPieces[0].transform.position = new Vector3(roadPieces[2].transform.position.x, roadPieces[2].transform.position.y, roadPieces[2].transform.position.z + tileSize);
+						MoveFoliageUp(((foliageObjectList.Count - 1) / 3), ((foliageObjectList.Count - 1) / 2), roadPieces[2].transform.position.z + tileSize, roadPieces[2].transform.position.z + (tileSize * 2));
+						MoveTreesUp(((forestObstaclesList.Count - 1) / 3), ((forestObstaclesList.Count - 1) / 2), roadPieces[2].transform.position.z + tileSize, roadPieces[2].transform.position.z + (tileSize * 2));
+						MoveRocksUp(((roadObstaclesList.Count - 1) / 3), ((roadObstaclesList.Count - 1) / 2), roadPieces[2].transform.position.z + tileSize, roadPieces[2].transform.position.z + (tileSize * 2));
+						Debug.Log("Moving 0");
 					}
-					//Generate foliage on left and right in chunks of 25
-					for (int i = 0; i < 25; i++)
+					if (car.transform.position.z > roadPieces[2].transform.position.z)
 					{
-						//Foliage limit
-						if (foliageObjectList.Count < 300)
-						{
-							GameObject foliageObject1 = Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(-6, -50), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z) + (tileSize + 1))), Quaternion.identity);
-							GameObject foliageObject2 = Instantiate(foliage[Random.Range(0, foliage.Length)], new Vector3(Random.Range(26, 70), roadGenPos.y, Random.Range(roadGenPos.z, (roadGenPos.z) + (tileSize + 1))), Quaternion.identity);
-							foliageObject1.transform.parent = sectionList[sectionList.Count - 1].transform;
-							foliageObject2.transform.parent = sectionList[sectionList.Count - 1].transform;
-						}
-					}
-					//Generate road obstacles
-					rand = Random.Range(0, 9);
-					if (rand > 2)
-					{
-						GameObject roadObject = Instantiate(roadObstacles[Random.Range(0, roadObstacles.Length)], new Vector3(Random.Range(0, 20), roadGenPos.y + 1f, Random.Range(roadGenPos.z, (roadGenPos.z * 10) + (tileSize + 1))), Quaternion.identity);
-						roadObject.transform.parent = sectionList[sectionList.Count - 1].transform;
-					}
-					//Reset timer
-					timer = 0;
-				}
-				//If car is further than road, create a new batch of roads
-				if (car.transform.position.z > (roadGenPos.z - tileSize))
-				{
-					//Add the new road and delete old section if behind camera
-					sectionList.Add(Instantiate(road, roadGenPos, Quaternion.identity));
-					if (sectionList.Count > 5)
-					{
-						Destroy(sectionList[0]);
-						sectionList.RemoveAt(0);
-					}
-					//Increase generated z by tile size
-					roadGenPos.z += tileSize;
-					//Add 1 to level counter
-					levelCounter++;
-					//Check if new level and then increase the tree spawn
-					if (levelCounter >= levelSizeByTile)
-					{
-						car.GetComponent<CarScript>().speed += speedIncrease;
-						levelCounter = 0;
-						obstaclesPerSecond -= obstaclesIncreasePerLevel;
+						roadPieces[1].transform.position = new Vector3(roadPieces[0].transform.position.x, roadPieces[0].transform.position.y, roadPieces[0].transform.position.z + tileSize);
+						MoveFoliageUp(((foliageObjectList.Count - 1) / 2), foliageObjectList.Count - 1, roadPieces[0].transform.position.z + tileSize, roadPieces[0].transform.position.z + (tileSize * 2));
+						MoveTreesUp(((forestObstaclesList.Count - 1) / 2), forestObstaclesList.Count - 1, roadPieces[0].transform.position.z + tileSize, roadPieces[0].transform.position.z + (tileSize * 2));
+						MoveRocksUp(((roadObstaclesList.Count - 1) / 2), roadObstaclesList.Count - 1, roadPieces[0].transform.position.z + tileSize, roadPieces[0].transform.position.z + (tileSize * 2));
+						Debug.Log("Moving 1");
+						passedFirstRoad = true;
 					}
 				}
 
@@ -243,6 +244,50 @@ public class GameMangerScript : MonoBehaviour
 		}
 	}
 
+
+	//-50 to -1 left side
+	//22 to 75 right side
+	//Randomly moved a certain section of grass
+	private void MoveFoliageUp(int startIndex, int endIndex, float startZ, float endZ)
+	{
+
+		for (int i = startIndex; i < endIndex; i++)
+		{
+			if (i < endIndex - i)
+			{
+				foliageObjectList[i].transform.position = new Vector3(Random.Range(-1, -50), roadGenPos.y, Random.Range(startZ, endZ));
+			}
+			else
+			{
+				foliageObjectList[i].transform.position = new Vector3(Random.Range(22, 75), roadGenPos.y, Random.Range(startZ, endZ));
+			}
+
+		}
+	}
+	private void MoveTreesUp(int startIndex, int endIndex, float startZ, float endZ)
+	{
+		for (int i = startIndex; i < endIndex; i++)
+		{
+			if (i < endIndex - i)
+			{
+				forestObstaclesList[i].transform.position = new Vector3(Random.Range(-1, -50), roadGenPos.y, Random.Range(startZ, endZ));
+			}
+			else
+			{
+				forestObstaclesList[i].transform.position = new Vector3(Random.Range(22, 75), roadGenPos.y, Random.Range(startZ, endZ));
+			}
+
+		}
+	}
+
+	private void MoveRocksUp(int startIndex, int endIndex, float startZ, float endZ)
+	{
+		for (int i = startIndex; i < endIndex; i++)
+		{
+			roadObstaclesList[i].transform.position = new Vector3(Random.Range(0, 22), roadGenPos.y+1f, Random.Range(startZ, endZ));
+		}
+	}
+	
 	//Method called when the game is over
 	public void EndGameScreenDisplay()
 	{

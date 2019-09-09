@@ -14,7 +14,7 @@ public class CarScript : MonoBehaviour
     //Store car rotation
     private float rotationDirection;
 	//Is car moving
-	private bool isCarMoving = false;
+	public bool isCarMoving = false;
 	//Cars camera
 	private Camera mainCamera;
 	private Vector3 defaultCameraRotation;
