@@ -11,6 +11,7 @@ public class FollowScript : MonoBehaviour
     {
         car = GameObject.FindGameObjectWithTag("car");
     }
+
     // Update is called once per frame
     void Update()
     {
